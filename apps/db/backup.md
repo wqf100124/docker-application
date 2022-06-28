@@ -1,0 +1,65 @@
+## Mysql数据库自动备份
+
+### 1、编写.sh脚本 另存为 backup.sh
+
+```sh
+#!/bin/bash
+count=0
+# 文件路径
+path=/home/web/backup/
+
+# 循环
+for db in xyun1688 xyuntest
+do
+	# 文件名称
+	file=$path${db}_$(date "+%Y_%m_%d_%H_%M_%S").sql
+	# 备份
+	mysqldump -u root -paiguangjii $database > $file
+	# 打包
+	tar -czvf $file.tar.gz $file
+	# 删除旧文件
+	/bin/rm $file
+	((count++))
+	echo "数据库\"${db}\"备份成功"
+done
+# 备份完成
+echo "已完成$count个数据库的备份"
+
+# 删除超过时间的备份文件
+day=3
+find $path -mtime +$day -type f -name '*.gz' -exec rm -f {} \;
+echo "$day天前的备份数据已删除"
+```
+
+### 2、使脚本具有执行权限
+```sh
+chmod +x /data/sh/db/backup.sh
+# 或cd到当前脚本命令目录运行：
+chmod +x ./backup.sh
+```
+
+
+### 3、添加计划任务
+```sh
+crontab -e
+# 每天 3 点钟执行备份
+01   3 * * * root/home/backup/DatabaseName.sh
+```
+
+### 4、常见问题
+
+#### 1、shell脚本报错“^M: bad interpreter”解决方法
+这时因为这个shell脚本可能是在Windows电脑上写的，或是在Windows电脑上复制了一些内容到脚本中，或进行了一些不正确的操作，必须将脚本格式由dos改为unix才能解决问题
+
+第一步：首先在Terminal中输入“vim 脚本”命令。
+这时会看到文件最下方显示的是“[dos]”，这就表示这个脚本是dos格式的啦。如果没有看到，可以输入“:set ff”，按下Enter键，查看脚本格式。
+
+第二步
+输入“:set ff=unix”后按Enter，将格式更改为unix格式。
+然后再输入“:set ff”，按下Enter键，这时如果看到“fileformat=unix”，这表明格式修改正确啦。
+
+第三步
+输入“:wq”，保存并退出脚本。
+再次运行脚本，看，不再出错啦。
+
+注意，编辑shell脚本前，一定要将输入法切换为英文半角符号状态。

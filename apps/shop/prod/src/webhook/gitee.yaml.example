@@ -1,0 +1,18 @@
+- id: gitee
+  execute-command: "/home/web/deploy/git.sh"
+  http-methods:
+    - GET
+    - POST
+  pass-arguments-to-command:
+    - source: string
+      name: "/home/web/project/example"
+    - source: string
+      name: "master"
+  trigger-rule:
+    match:
+      type: "value"
+      value: "<YOUR-GENERATED-TOKEN>"
+      parameter:
+        source: "header"
+        name: "X-Gitee-Token"
+  response-message: "webhook success!"

@@ -1,0 +1,123 @@
+version: "3"
+
+services:
+  php:
+    container_name: php8.1
+    image: wangqifei/web:php8.1
+    restart: always
+    networks:
+      web:
+        ipv4_address: 172.16.0.2
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - "8000:8000"
+    volumes:
+      - project:/var/web/project
+      - php81-supervisor:/etc/supervisor/conf.d
+      - php81-run:/var/run/php
+
+    depends_on:
+      - nginx
+      - pgsql
+      - redis
+
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    restart: always
+    networks:
+      web:
+        ipv4_address: 172.16.0.80
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx:/etc/nginx/conf.d
+      - project:/var/web/project
+
+  pgsql:
+    container_name: pgsql
+    image: postgres:13-alpine
+    restart: always
+    networks: 
+      web:
+        ipv4_address: 172.16.0.54
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Ab123456
+    volumes:
+       - pgsql-conf:/etc/postgresql
+       - pgsql-data:/var/lib/postgresql/data
+       - pgsql-backup:/var/lib/postgresql/backup
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+    networks: 
+      web:
+        ipv4_address: 172.16.0.63
+
+volumes:
+  project:
+    name: project
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/project"
+  nginx:
+    name: nginx
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/nginx/conf.d"
+  pgsql-conf:
+    name: pgsql-conf
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/pgsql/conf"
+  pgsql-data:
+    name: pgsql-data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/pgsql/data"
+  pgsql-backup:
+    name: pgsql-backup
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/pgsql/backup"
+  php81-supervisor:
+    name: php81-supervisor
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/php/8.1/supervisor/conf.d"
+  php81-run:
+    name: php81-run
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/var/web/service/php/8.1/run"
+
+networks:
+  web:
+    name: web
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24

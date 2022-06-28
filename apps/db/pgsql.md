@@ -1,0 +1,92 @@
+##  postgresql
+
+```sh
+docker run -d \
+--name pgsql \
+--env POSTGRES_DB=postgres \
+--env POSTGRES_USER=postgres \
+--env POSTGRES_PASSWORD=Ab123456 \
+--network web \
+--ip 172.16.0.54 \
+-p 5432:5432 \
+-v /var/web/service/pgsql/conf:/etc/postgresql \
+-v /var/web/service/pgsql/log:/var/log/postgresql \
+-v /var/web/service/pgsql/data:/var/lib/postgresql/data \
+-v /var/web/service/pgsql/backup:/var/lib/postgresql/backup \
+--restart always \
+postgres:13-alpine
+```
+
+## 基础操作
+
+创建数据库
+```shell
+psql -U postgres
+#PostgreSQL 命令窗口
+CREATE DATABASE dbname;
+
+#命令
+docker exec pgsql createdb -h localhost -U postgres
+```
+
+## 数据库备份
+
+backup.sh dbname
+```shell
+#!/bin/bash
+
+# Database name
+database=${1}
+path=/var/lib/postgresql/backup
+# Backup file name
+filename=${database}_$(date "+%Y%m%d-%H%M%S").bak
+
+# Backing up
+docker exec pgsql pg_dump -h localhost -U postgres -d ${database} -Fc -f ${path}/${filename}
+echo "The ${database} database backup success to ${path}/${filename}"
+```
+
+## 数据库还原
+
+restore.sh dbname filepath
+```shell
+#!/bin/bash
+
+database=${1}
+filepath=${2}
+# restore
+docker exec pgsql pg_restore -h localhost -U postgres -p 5432 -d ${database} ${filepath}
+```
+
+## 数据库同步
+
+sync.sh fromDatabase toDatabase
+```shell
+#!/bin/bash
+
+fromDatabase=${1}
+toDatabase=${2}
+filepath=/tmp/${fromDatabase}.bak
+# backup db
+docker exec pgsql pg_dump -h localhost -U postgres -d ${fromDatabase} -Fc -f ${filepath}
+# drop db
+docker exec pgsql dropdb -h localhost -U postgres --if-exists ${toDatabase}
+# create db
+docker exec pgsql createdb -h localhost -U postgres ${toDatabase}
+# restore db
+docker exec pgsql pg_restore -h localhost -U postgres -p 5432 -d ${toDatabase} ${filepath}
+# delete tmp file
+rm -f ${filepath}
+```
+
+```shell
+docker run -d \
+    --network web \
+    --name pgadmin \
+    -e 'PGADMIN_DEFAULT_EMAIL=928988368@qq.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=sK3qV6fO3nU7gJ1o' \
+    -e 'PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True' \
+    -e 'PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"' \
+    -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10' \
+    dpage/pgadmin4
+```

@@ -1,0 +1,11 @@
+- id: example
+  execute-command: "/home/web/deploy/example.sh"
+  http-methods:
+    - GET
+    - POST
+  pass-arguments-to-command:
+    - source: string
+      name: "参数1"
+    - source: string
+      name: "参数2"
+  response-message: "webhook test success!"
