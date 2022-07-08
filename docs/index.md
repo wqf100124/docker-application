@@ -11,15 +11,24 @@ hero:
     - theme: alt
       text: 生产环境
       link: /prod/
+    - theme: alt
+      text: Scrapy
+      link: /prod/scrapy
+    - theme: alt
+      text: Django
+      link: /prod/django
+    - theme: alt
+      text: Taro
+      link: /prod/taro
 
 features:
   - icon: ⚡️
-    title: Vite, The DX that can't be beat
+    title: 开发
     details: Lorem ipsum...
   - icon: 🖖
-    title: Power of Vue meets Markdown
+    title: 部署
     details: Lorem ipsum...
   - icon: 🛠️
-    title: Simple and minimal, always
+    title: 扩展
     details: Lorem ipsum...
 ---
