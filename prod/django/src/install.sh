@@ -16,9 +16,6 @@ pip install django
 # ---------- psycopg2 ----------
 apt-get install -y python3-psycopg2
 pip install psycopg2
-# ---------- mysql ----------
-apt-get install -y default-libmysqlclient-dev build-essential
-pip install mysqlclient
 # ---------- init ----------
 mv /tmp/entrypoint.sh /run/entrypoint.sh
 chmod +x /run/entrypoint.sh
