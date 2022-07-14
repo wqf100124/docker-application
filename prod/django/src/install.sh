@@ -16,6 +16,8 @@ pip install django
 # ---------- psycopg2 ----------
 apt-get install -y python3-psycopg2
 pip install psycopg2
+# ---------- vite ----------
+pip install django-vite
 # ---------- init ----------
 mv /tmp/entrypoint.sh /run/entrypoint.sh
 chmod +x /run/entrypoint.sh
