@@ -4,10 +4,9 @@ Github：[https://github.com/adnanh/webhook](https://github.com/adnanh/webhook)
 Github：[https://hub.docker.com/r/almir/webhook](https://hub.docker.com/r/almir/webhook)
 
 
-1.运行容器
-
-```shell
-apt-get install webhook
+1.安装
+```sh
+$ sudo apt-get install webhook
 ```
 
 Docker
@@ -17,7 +16,7 @@ docker run -d -p 9000:9000 --name=webhook wangqifei/web:webhook
 
 2.配置域名
 
-```conf
+```ini
 # http
 server {
     listen       80;
@@ -335,10 +334,58 @@ Ip白名单
 }
 ```
 
+## Yaml
 
+```yaml
+- id: example
+  execute-command: "/home/web/deploy/example.sh"
+  http-methods:
+    - GET
+    - POST
+  pass-arguments-to-command:
+    - source: string
+      name: "参数1"
+    - source: string
+      name: "参数2"
+  response-message: "webhook test success!"
+```
 
+gitee
+```yaml
+- id: gitee
+  execute-command: "/home/web/deploy/git.sh"
+  http-methods:
+    - GET
+    - POST
+  pass-arguments-to-command:
+    - source: string
+      name: "/home/web/project/example"
+    - source: string
+      name: "master"
+  trigger-rule:
+    match:
+      type: "value"
+      value: "<YOUR-GENERATED-TOKEN>"
+      parameter:
+        source: "header"
+        name: "X-Gitee-Token"
+  response-message: "webhook success!"
+```
 
-ubuntu
+./deploy.sh /var/wep/project/example main
 ```sh
-sudo apt-get install webhook
+#!/bin/bash
+git_path=${1}
+if [ -d ${git_path} ]
+then
+  git_branch=${2}
+  echo "path: ${git_path}"
+  echo "branch: origin/${git_branch}"
+  cd ${git_path}
+  git fetch --all 2>&1
+  git reset --hard origin/${git_branch} 2>&1
+  git pull origin ${git_branch} 2>&1
+else
+  echo "No such directory: ${git_path}"
+fi
 ```

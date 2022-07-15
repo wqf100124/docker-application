@@ -3,24 +3,24 @@
 ## 构建镜像
 
 ### php8.1
-```shell
-docker build -t wangqifei/php-fpm:8.1 -t wangqifei/php-fpm:latest --no-cache ./prod/php/php-fpm
+```sh
+$ docker build -t wangqifei/php-fpm:8.1 -t wangqifei/php-fpm:latest --no-cache ./prod/php/php-fpm
 ```
 
 ### php8.0
-```shell
-docker build -t wangqifei/php-fpm:8.0 --build-arg version=8.0 --no-cache ./prod/php/php-fpm
+```sh
+$ docker build -t wangqifei/php-fpm:8.0 --build-arg version=8.0 --no-cache ./prod/php/php-fpm
 ```
 
 ### php7.4
-```shell
-docker build -t wangqifei/php-fpm:7.4 --build-arg version=7.4 --no-cache ./prod/php/php-fpm
+```sh
+$ docker build -t wangqifei/php-fpm:7.4 --build-arg version=7.4 --no-cache ./prod/php/php-fpm
 ```
 
 ## 创建容器
 
-```shell
-docker run -d \
+```sh
+$ docker run -d \
 --name php8.1-fpm \
 --network web \
 --restart always \
@@ -30,8 +30,8 @@ wangqifei/php-fpm:8.1
 ```
 
 ### 赋予权限
-```shell
-chmod -R 777 /var/web/service/php/8.1/run
+```sh
+$ chmod -R 777 /var/web/service/php/8.1/run
 ```
 
 ## Nginx配置

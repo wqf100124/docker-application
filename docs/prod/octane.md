@@ -3,33 +3,33 @@
 ## 构建镜像
 
 ### php8.1
-```shell
-docker build -t wangqifei/octane:php8.1 -t wangqifei/octane:latest --no-cache ./prod/php/octane
+```sh
+$ docker build -t wangqifei/octane:php8.1 -t wangqifei/octane:latest --no-cache ./prod/php/octane
 ```
 
 ### php8.0
-```shell
-docker build -t wangqifei/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane
+```sh
+$ docker build -t wangqifei/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane
 ```
 
 ## 安装依赖
 
-```shell
-composer require laravel/octane
+```sh
+$ composer require laravel/octane
 
-php artisan octane:install
+$ php artisan octane:install
 ```
 
 默认使用swoole，如果要使用roadrunner，替换supervisor命令
 
-```shell
+```ini
 command=/usr/bin/php -d variables_order=EGPCS /var/web/project/app/artisan octane:start --server=roadrunner --host=0.0.0.0 --rpc-port=6001 --port=8000
 ```
 
 ## 创建容器
 
-```shell
-docker run -d \
+```sh
+$ docker run -d \
 --name app \
 --network web \
 --restart always \

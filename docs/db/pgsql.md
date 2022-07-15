@@ -1,38 +1,42 @@
-##  postgresql
+# Postgresql
+
+## 创建容器
 
 ```sh
-docker run -d \
---name pgsql \
---env POSTGRES_DB=postgres \
---env POSTGRES_USER=postgres \
---env POSTGRES_PASSWORD=Ab123456 \
---network web \
---ip 172.16.0.54 \
--p 5432:5432 \
--v /var/web/service/pgsql/conf:/etc/postgresql \
--v /var/web/service/pgsql/log:/var/log/postgresql \
--v /var/web/service/pgsql/data:/var/lib/postgresql/data \
--v /var/web/service/pgsql/backup:/var/lib/postgresql/backup \
---restart always \
-postgres:13-alpine
+$ docker run -d \
+    --name pgsql \
+    --env POSTGRES_DB=postgres \
+    --env POSTGRES_USER=postgres \
+    --env POSTGRES_PASSWORD=Ab123456 \
+    --network web \
+    --ip 172.16.0.54 \
+    -p 5432:5432 \
+    -v /var/web/service/pgsql/conf:/etc/postgresql \
+    -v /var/web/service/pgsql/log:/var/log/postgresql \
+    -v /var/web/service/pgsql/data:/var/lib/postgresql/data \
+    -v /var/web/service/pgsql/backup:/var/lib/postgresql/backup \
+    --restart always \
+    postgres:13-alpine
 ```
 
 ## 基础操作
 
 创建数据库
-```shell
-psql -U postgres
+
+```sh
+$ psql -U postgres
 #PostgreSQL 命令窗口
-CREATE DATABASE dbname;
+$ CREATE DATABASE dbname;
 
 #命令
-docker exec pgsql createdb -h localhost -U postgres
+$ docker exec pgsql createdb -h localhost -U postgres
 ```
 
 ## 数据库备份
 
 backup.sh dbname
-```shell
+
+```sh
 #!/bin/bash
 
 # Database name
@@ -49,7 +53,8 @@ echo "The ${database} database backup success to ${path}/${filename}"
 ## 数据库还原
 
 restore.sh dbname filepath
-```shell
+
+```sh
 #!/bin/bash
 
 database=${1}
@@ -61,7 +66,8 @@ docker exec pgsql pg_restore -h localhost -U postgres -p 5432 -d ${database} ${f
 ## 数据库同步
 
 sync.sh fromDatabase toDatabase
-```shell
+
+```sh
 #!/bin/bash
 
 fromDatabase=${1}
@@ -79,10 +85,11 @@ docker exec pgsql pg_restore -h localhost -U postgres -p 5432 -d ${toDatabase} $
 rm -f ${filepath}
 ```
 
-```shell
-docker run -d \
-    --network web \
+```sh
+$ docker run -d \
     --name pgadmin \
+    --network web \
+    --ip 172.16.0.200 \
     -e 'PGADMIN_DEFAULT_EMAIL=928988368@qq.com' \
     -e 'PGADMIN_DEFAULT_PASSWORD=sK3qV6fO3nU7gJ1o' \
     -e 'PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True' \

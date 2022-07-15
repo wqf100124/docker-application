@@ -7,19 +7,10 @@ hero:
   actions:
     - theme: brand
       text: 开发环境
-      link: /dev/
+      link: /dev/php
     - theme: alt
       text: 生产环境
       link: /prod/
-    - theme: alt
-      text: Scrapy
-      link: /prod/scrapy
-    - theme: alt
-      text: Django
-      link: /prod/django
-    - theme: alt
-      text: Taro
-      link: /prod/taro
 
 features:
   - icon: ⚡️

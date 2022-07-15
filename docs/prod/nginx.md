@@ -2,14 +2,14 @@
 
 ## 构建镜像
 
-```shell
-docker build -t wangqifei/nginx:alpine --no-cache ./prod/nginx
+```sh
+$ docker build -t wangqifei/nginx:alpine --no-cache ./prod/nginx
 ```
 
 ## 创建容器
 
-```shell
-docker run -d \
+```sh
+$ docker run -d \
 --name nginx \
 --network web \
 -p 80:80 \

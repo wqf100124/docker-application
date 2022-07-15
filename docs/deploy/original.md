@@ -1,3 +1,6 @@
+# Original
+
+```sh
 #!/bin/bash
 # nginx.conf /etc/nginx/nginx.conf
 # sites /etc/nginx/sites-enabled/*
@@ -68,3 +71,4 @@ git --version
 /etc/init.d/php7.4-fpm start
 /etc/init.d/redis-server start
 /etc/init.d/mysql start
+```

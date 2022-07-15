@@ -1,6 +1,8 @@
-## Jenkins
+# Jenkins
 
 安装
+
+内存小，不要装
 
 ```sh
 docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts-jdk11
@@ -9,7 +11,16 @@ docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts-jdk11
 docker run -d -u root --name jenkins --network web -p 8080:8080 -p 50000:50000 -v /var/web/service/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean
 
 # 仅提供docker内部端口
-docker run -d -u root --name jenkins --network web -v /var/web/service/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ssh:/root/.ssh -v /var/web/project:/var/web/project jenkinsci/blueocean
+docker run -d \
+    -u root \
+    --name jenkins \
+    --network web \
+    --ip 172.16.0.201 \
+    -v /var/web/service/jenkins:/var/jenkins_home \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh:/root/.ssh \
+    -v /var/web/project:/var/web/project \
+    jenkinsci/blueocean
 ```
 
 查看初始化密码
@@ -24,7 +35,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 设置时区
 
-```shell
+```sh
 docker exec -it jenkins bash
 
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -34,7 +45,7 @@ echo Asia/Shanghai > /etc/timezone
 
 
 配置域名
-```conf
+```ini
 # http
 server {
     listen       80;

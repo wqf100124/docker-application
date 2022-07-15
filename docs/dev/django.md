@@ -4,7 +4,7 @@ python/pip/django
 ## 构建镜像
 
 ```sh
-$ docker build -t wangqifei/django --no-cache ./prod/django
+$ docker build -t wangqifei/django --no-cache ./dev/django
 ```
 
 ##  运行容器

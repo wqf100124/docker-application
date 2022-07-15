@@ -8,7 +8,7 @@ export default defineConfig({
     themeConfig: {
         editLink: false,
         nav: [
-            {text: '开发环境', link: '/dev'},
+            {text: '开发环境', link: '/dev/php'},
             {
                 text: '生产环节',
                 items: [
@@ -21,6 +21,25 @@ export default defineConfig({
                     {text: 'Django', link: '/prod/django'},
                     {text: 'Scrapy', link: '/prod/scrapy'},
                 ]
+            },
+            {
+                text: '数据库',
+                items: [
+                    {text: 'Postgres', link: '/db/pgsql'},
+                    {text: 'Mysql', link: '/db/mysql'},
+                    {text: 'Redis', link: '/db/redis'},
+                    {text: 'MariaDB', link: '/db/mariadb'}
+                ]
+            },
+            {
+                text: '部署',
+                items: [
+                    {text: 'Gitlab', link: '/deploy/gitlab'},
+                    {text: 'Jenkins', link: '/deploy/jenkins'},
+                    {text: 'Ubuntu', link: '/deploy/ubuntu'},
+                    {text: 'Webhook', link: '/deploy/webhook'},
+                    {text: 'MQ', link: '/deploy/mq'},
+                ]
             }
         ],
         sidebar: {
@@ -28,7 +47,8 @@ export default defineConfig({
                 {
                     text: '开发环境搭建',
                     items: [
-                        {text: 'PHP', link: '/dev/'},
+                        {text: 'PHP', link: '/dev/php'},
+                        {text: 'Django', link: '/dev/django'},
                     ]
                 }
             ],
@@ -44,6 +64,29 @@ export default defineConfig({
                         {text: 'Taro', link: '/prod/taro'},
                         {text: 'Django', link: '/prod/django'},
                         {text: 'Scrapy', link: '/prod/scrapy'},
+                    ]
+                }
+            ],
+            '/db/': [
+                {
+                    text: '数据库',
+                    items: [
+                        {text: 'Postgres', link: '/db/pgsql'},
+                        {text: 'Mysql', link: '/db/mysql'},
+                        {text: 'Redis', link: '/db/redis'},
+                        {text: 'MariaDB', link: '/db/mariadb'}
+                    ]
+                }
+            ],
+            '/deploy/': [
+                {
+                    text: '部署',
+                    items: [
+                        {text: 'Gitlab', link: '/deploy/gitlab'},
+                        {text: 'Jenkins', link: '/deploy/jenkins'},
+                        {text: 'Ubuntu', link: '/deploy/ubuntu'},
+                        {text: 'Webhook', link: '/deploy/webhook'},
+                        {text: 'MQ', link: '/deploy/mq'},
                     ]
                 }
             ]

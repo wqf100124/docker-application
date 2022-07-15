@@ -1,5 +1,6 @@
-##  创建用户
+# Ubuntu
 
+## 创建用户
 ```sh
 useradd -d /home/wqf -m -g root -s /bin/bash -p Wqf123 wqf
 ```

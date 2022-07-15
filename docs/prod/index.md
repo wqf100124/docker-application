@@ -7,8 +7,8 @@
 
 ## 创建网络
 
-```shell
-docker network create --subnet=172.16.0.0/24 web
+```sh
+$ docker network create --subnet=172.16.0.0/24 web
 ```
 
 ## 运行方式

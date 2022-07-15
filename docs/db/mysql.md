@@ -1,3 +1,54 @@
+# Mysql
+
+## 创建容器
+```sh
+$ docker run -d \
+    --name mysql \
+    --env MYSQL_ROOT_HOST=% \
+    --env MYSQL_ROOT_PASSWORD=Ab123456 \
+    --network web \
+    --ip 172.16.0.33 \
+    -p 3306:3306 \
+    -v /var/web/service/mysql:/var/lib/mysql \
+    --restart always \
+    mysql:5.7
+```
+
+```sh
+$ docker exec mysql echo "sql_mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/conf.d/mysql.cnf
+```
+
+## 数据库备份
+
+backup.sh
+```sh
+#!/bin/bash
+# database
+database=${1}
+backup_path=/var/web/backup/database
+# 文件名称
+file=$backup_path/${database}_$(date "+%Y_%m_%d_%H_%M_%S").sql
+# 备份
+docker exec mysql mysqldump -u root -paiguangjii $database > $file
+# 打包
+tar -czf $file.tar.gz $file
+# 删除旧文件
+rm $file
+echo "数据库\"${database}\"备份成功"
+
+#!/bin/bash
+
+# Database name
+database=${1}
+path=/var/lib/postgresql/backup
+# Backup file name
+filename=${database}_$(date "+%Y%m%d-%H%M%S").bak
+
+# Backing up
+docker exec mysql mysqldump -u root -paiguangjii $database > ${path}/$file
+echo "The ${database} database backup was successful!"
+```
+
 ## Mysql数据库自动备份
 
 ### 1、编写.sh脚本 另存为 backup.sh
@@ -48,8 +99,8 @@ crontab -e
 
 ### 4、常见问题
 
-#### 1、shell脚本报错“^M: bad interpreter”解决方法
-这时因为这个shell脚本可能是在Windows电脑上写的，或是在Windows电脑上复制了一些内容到脚本中，或进行了一些不正确的操作，必须将脚本格式由dos改为unix才能解决问题
+#### 1、sh脚本报错“^M: bad interpreter”解决方法
+这时因为这个sh脚本可能是在Windows电脑上写的，或是在Windows电脑上复制了一些内容到脚本中，或进行了一些不正确的操作，必须将脚本格式由dos改为unix才能解决问题
 
 第一步：首先在Terminal中输入“vim 脚本”命令。
 这时会看到文件最下方显示的是“[dos]”，这就表示这个脚本是dos格式的啦。如果没有看到，可以输入“:set ff”，按下Enter键，查看脚本格式。
@@ -62,4 +113,4 @@ crontab -e
 输入“:wq”，保存并退出脚本。
 再次运行脚本，看，不再出错啦。
 
-注意，编辑shell脚本前，一定要将输入法切换为英文半角符号状态。
+注意，编辑sh脚本前，一定要将输入法切换为英文半角符号状态。
