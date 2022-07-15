@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as l}from"./app.7530d465.js";const d=JSON.parse('{"title":"Jenkins","description":"","frontmatter":{},"headers":[],"relativePath":"deploy/jenkins.md"}'),p={name:"deploy/jenkins.md"},e=l("",10),o=[e];function c(t,i,r,A,y,C){return a(),n("div",null,o)}var _=s(p,[["render",c]]);export{d as __pageData,_ as default};
