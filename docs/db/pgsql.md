@@ -21,16 +21,59 @@ $ docker run -d \
 
 ## 基础操作
 
-创建数据库
-
+命令窗口
 ```sh
 $ psql -U postgres
-#PostgreSQL 命令窗口
-$ CREATE DATABASE dbname;
+```
 
-#命令
+创建数据库
+```sh
+$ CREATE DATABASE dbname;
+```
+
+```sh
 $ docker exec pgsql createdb -h localhost -U postgres
 ```
+
+删除数据库
+```sh
+$ DROP DATABASE [表名];
+```
+
+```sh
+$ docker exec pgsql dropdb -h localhost -U postgres --if-exists dbname
+```
+
+重命名一个表
+```sh
+$ alter table [表名A] rename to [表名B];
+```
+
+删除一个表
+```sh
+$ drop table [表名];
+```
+
+在已有的表里添加字段
+```sh
+$ alter table [表名] add column [字段名] [类型];
+```
+
+删除表中的字段
+```sh
+$ alter table [表名] drop column [字段名];
+```
+
+重命名一个字段
+```sh
+$ alter table [表名] alter column [字段名] set default [新的默认值];
+```
+
+去除缺省值
+```sh
+$ alter table [表名] alter column [字段名] drop default;
+```
+
 
 ## 数据库备份
 
