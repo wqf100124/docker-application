@@ -1,6 +1,6 @@
 # Jenkins
 
-安装
+## Docker方式
 
 内存小，不要装
 
@@ -43,8 +43,8 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo Asia/Shanghai > /etc/timezone
 ```
 
-
 配置域名
+
 ```ini
 # http
 server {
@@ -81,4 +81,13 @@ server {
         proxy_pass http://172.16.0.3:8080;
     }
 }
+```
+
+## 安装包方式
+
+```sh
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
 ```
