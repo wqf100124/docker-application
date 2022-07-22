@@ -5,7 +5,9 @@ export default defineConfig({
     description: '主要记录Docker在开发和生产环境中的使用文档',
     lang: 'zh-CN',
     base: '/docker-application/',
-    head: [['link', {rel: 'shortcut icon', href: '/logo.svg'}]],
+    head: [
+        ['link', {rel: 'shortcut icon', href: '/logo.svg'}]
+    ],
     themeConfig: {
         editLink: false,
         logo: '/logo.svg',
