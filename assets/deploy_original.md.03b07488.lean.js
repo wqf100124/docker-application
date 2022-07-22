@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,a as p}from"./app.7530d465.js";const h=JSON.parse('{"title":"Original","description":"","frontmatter":{},"headers":[],"relativePath":"deploy/original.md"}'),l={name:"deploy/original.md"},e=p("",2),t=[e];function o(c,i,r,A,y,C){return a(),n("div",null,t)}var g=s(l,[["render",o]]);export{h as __pageData,g as default};
