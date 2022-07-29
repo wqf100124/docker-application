@@ -158,3 +158,43 @@ apt-get install -y redis-server
 ```sh
 /etc/init.d/redis-server {start|stop|restart|force-reload|status}
 ```
+
+
+## 小内存主机 Swap分区
+
+1.首先先关闭Swap分区，将默认的Swap分区清空：
+```sh
+swapoff -a
+```
+
+2.创建要Swap分区文件
+其中/var/swapfile是文件位置，bs*count是文件大下，例如以下命令就会创建一个4G的文件：
+```sh
+dd if=/dev/zero of=/var/swapfile bs=1M count=4096
+```
+
+3、格式化为Swap分区文件
+
+```sh
+mkswap /var/swapfile
+```
+
+4、启用Swap分区
+
+```sh
+swapon /var/swapfile
+```
+
+5、查看新的分区
+
+```sh
+free -m
+```
+
+6、设置开机启动
+
+最后就是增加开机启动了，只需要在/etc/fstab这个文件里增加这一行代码即可（如果你不会在Linux上编辑文件，可以参考：《Linux下使用vim编辑以及新建文件》）：
+
+```sh
+echo '/etc/fstab' >> /var/swapfile swap swap defaults 0 0
+```
