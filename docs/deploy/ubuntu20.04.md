@@ -104,9 +104,9 @@ http {
 ## PHP
 ```sh
 $ apt-get install -y software-properties-common \
-add-apt-repository -y ppa:ondrej/php \
-apt-get update \
-apt-get install -y \
+&& add-apt-repository -y ppa:ondrej/php \
+&& apt-get update \
+&& apt-get install -y \
 php8.1 \
 php8.1-bcmath \
 php8.1-curl \
@@ -145,7 +145,7 @@ $ apt-get install -y php8.1-amqp
 ### Composer
 ```sh
 $ php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
-php composer-setup.php --install-dir=/usr/bin --filename=composer;
+&& php composer-setup.php --install-dir=/usr/bin --filename=composer;
 ```
 
 ## Supervisor
@@ -208,6 +208,16 @@ $ apt-get install -y redis-server
 命令
 ```sh
 $ /etc/init.d/redis-server {start|stop|restart|force-reload|status}
+```
+
+## PostgreSQL
+
+安装
+```sh
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install postgresql
 ```
 
 ## Swap分区(小内存主机)
