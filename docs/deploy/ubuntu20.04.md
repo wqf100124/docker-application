@@ -213,12 +213,35 @@ $ /etc/init.d/redis-server {start|stop|restart|force-reload|status}
 ## PostgreSQL
 
 安装
+
 ```sh
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install postgresql
 ```
+
+命令
+
+```sh
+/etc/init.d/postgresql {start|stop|restart|reload|force-reload|status}
+```
+
+配置
+/etc/postgresql/14/main
+
+添加远程连接
+/etc/postgresql/14/main/pg_hba.conf
+```ini
+host    all     all     0.0.0.0/24      scram-sha-256
+```
+
+修改端口号/最大连接数
+/etc/postgresql/14/main/postgresql.conf
+```ini
+port = 54321                            # (change requires restart)
+max_connections = 100
+```
+
 
 ## Swap分区(小内存主机)
 
