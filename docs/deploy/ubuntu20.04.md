@@ -229,19 +229,65 @@ sudo apt-get -y install postgresql
 配置
 /etc/postgresql/14/main
 
-添加远程连接
+### 远程连接
+
+1.添加允许访问的IP和验证方式    
 /etc/postgresql/14/main/pg_hba.conf
 ```ini
-host    all     all     0.0.0.0/24      scram-sha-256
+host    all     all     0.0.0.0/0       md5
 ```
 
-修改端口号/最大连接数
+2.修改监听地址    
+/etc/postgresql/14/main/postgresql.conf
+```ini
+#listen_addresses = 'localhost'
+#修改为
+listen_addresses = '*'
+```
+
+3.重启服务
+```sh
+$ /etc/init.d/postgresql restart
+```
+
+### 修改端口号/最大连接数
 /etc/postgresql/14/main/postgresql.conf
 ```ini
 port = 54321                            # (change requires restart)
 max_connections = 100
 ```
 
+### 基础操作
+
+切换postgres用户登录
+```sh
+$ su postgres
+```
+
+连接数据库
+```sh
+$ psql
+```
+
+修改默认用户密码
+```sh
+\password postgres
+```
+
+创建新用户
+```sh
+$ create user test_user with password '123456';
+```
+
+创建数据库
+```sh
+$ create database test_db owner test_user;
+```
+
+授权
+```sh
+$ grant all privileges on database test_db to test_user;
+```
 
 ## Swap分区(小内存主机)
 
