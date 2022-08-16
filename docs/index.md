@@ -5,8 +5,9 @@ hero:
   image:
     src: /hero.svg
     alt: logo
-  name: Docker Application
-  tagline: Docker在项目开发中的应用
+  name: Docker笔记
+  text: 谨用于日常记录，以备在必要的时候查阅。
+  tagline: 开发、生产、部署
   actions:
     - theme: brand
       text: 开发环境

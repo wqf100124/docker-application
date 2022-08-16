@@ -375,7 +375,12 @@
     display: inline-block;
 }
 
-.VPHomeHero .name, .VPHomeHero .tagline {
+.VPHomeHero .name, .VPHomeHero .text, .VPHomeHero .tagline {
+    max-width: 100% !important;
     margin: auto;
     text-align: center;
+}
+
+.VPHomeHero .text {
+    font-size: 28px;
 }
