@@ -2,6 +2,9 @@
 layout: home
 
 hero:
+  image:
+    src: /hero.svg
+    alt: logo
   name: Docker Application
   tagline: Docker在项目开发中的应用
   actions:

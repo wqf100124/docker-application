@@ -10,7 +10,10 @@ export default defineConfig({
     ],
     themeConfig: {
         editLink: false,
-        logo: '/logo.svg',
+        logo: {
+            light: '/logo.svg',
+            dark: '/logo-dark.svg',
+        },
         socialLinks: [
             {icon: 'github', link: 'https://github.com/wqf100124/docker-application'},
         ],
