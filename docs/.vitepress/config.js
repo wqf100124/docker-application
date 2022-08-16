@@ -50,7 +50,7 @@ export default defineConfig({
                 ]
             },
             {
-                text: '第三方服务',
+                text: '依赖服务',
                 items: [
                     {text: 'MQ', link: '/service/mq'},
                     {text: 'Webhook', link: '/service/webhook'},
@@ -59,7 +59,7 @@ export default defineConfig({
                 ]
             },
             {
-                text: '服务器部署',
+                text: '原生部署',
                 items: [
                     {text: 'Ubuntu20.04', link: '/deploy/ubuntu20.04'},
                 ]
@@ -68,7 +68,7 @@ export default defineConfig({
         sidebar: {
             '/dev/': [
                 {
-                    text: '开发环境搭建',
+                    text: '开发环境',
                     items: [
                         {text: 'PHP', link: '/dev/php'},
                         {text: 'Django', link: '/dev/django'},
@@ -104,7 +104,7 @@ export default defineConfig({
             ],
             '/service/': [
                 {
-                    text: '第三方服务',
+                    text: '依赖服务',
                     items: [
                         {text: 'MQ', link: '/service/mq'},
                         {text: 'Webhook', link: '/service/webhook'},
@@ -115,7 +115,7 @@ export default defineConfig({
             ],
             '/deploy/': [
                 {
-                    text: '服务器部署',
+                    text: '原生部署',
                     items: [
                         {text: 'Ubuntu20.04', link: '/deploy/ubuntu20.04'},
                     ]
