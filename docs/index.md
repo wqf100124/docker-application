@@ -15,15 +15,4 @@ hero:
     - theme: alt
       text: 生产环境
       link: /prod/
-
-features:
-  - icon: ⚡️
-    title: 开发
-    details: Lorem ipsum...
-  - icon: 🖖
-    title: 部署
-    details: Lorem ipsum...
-  - icon: 🛠️
-    title: 扩展
-    details: Lorem ipsum...
 ---

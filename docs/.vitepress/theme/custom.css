@@ -368,7 +368,7 @@
     display: block !important;
     flex-wrap: unset !important;
     margin: 0 !important;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .VPHomeHero .actions .action {
@@ -377,10 +377,18 @@
 
 .VPHomeHero .name, .VPHomeHero .text, .VPHomeHero .tagline {
     max-width: 100% !important;
-    margin: auto;
-    text-align: center;
+    /*margin: auto;*/
+    /*text-align: center;*/
+}
+
+.VPHomeHero .name {
+    font-size: 56px;
 }
 
 .VPHomeHero .text {
-    font-size: 28px;
+    font-size: 30px;
+}
+
+.VPHomeHero .tagline {
+    font-size: 20px;
 }
