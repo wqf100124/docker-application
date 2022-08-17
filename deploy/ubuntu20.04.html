@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Ubuntu20.04下搭建生产环境 | Docker笔记</title>
     <meta name="description" content="记录在开发和生产环境中的Docker使用笔记">
-    <link rel="stylesheet" href="/docker-application/assets/style.8f37f6e1.css">
-    <link rel="modulepreload" href="/docker-application/assets/app.973828c5.js">
-    <link rel="modulepreload" href="/docker-application/assets/deploy_ubuntu20.04.md.016a00b0.lean.js">
+    <link rel="stylesheet" href="/docker-application/assets/style.1fb3965c.css">
+    <link rel="modulepreload" href="/docker-application/assets/app.dd17579a.js">
+    <link rel="modulepreload" href="/docker-application/assets/deploy_ubuntu20.04.md.890917fd.lean.js">
     
     <link rel="shortcut icon" href="/logo.svg">
   <script>(()=>{const e=localStorage.getItem("vitepress-theme-appearance"),a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
@@ -130,8 +130,8 @@
 <span class="line"></span></code></pre></div><p>5、查看新的分区</p><div class="language-sh"><span class="copy"></span><pre><code><span class="line"><span style="color:#A6ACCD;">$ free -m</span></span>
 <span class="line"></span></code></pre></div><p>6、设置开机启动</p><p>最后就是增加开机启动了，只需要在/etc/fstab这个文件里增加这一行代码即可（如果你不会在Linux上编辑文件，可以参考：《Linux下使用vim编辑以及新建文件》）：</p><div class="language-sh"><span class="copy"></span><pre><code><span class="line"><span style="color:#A6ACCD;">$ </span><span style="color:#82AAFF;">echo</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&#39;</span><span style="color:#C3E88D;">/etc/fstab</span><span style="color:#89DDFF;">&#39;</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&gt;&gt;</span><span style="color:#A6ACCD;"> /var/swapfile swap swap defaults 0 0</span></span>
 <span class="line"></span></code></pre></div></div></div></main><footer class="VPDocFooter" data-v-79ca2460 data-v-04568844><div class="edit-info" data-v-04568844><!----><!----></div><!----></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-6b5fd0a9 data-v-5b331722><div class="container" data-v-5b331722><p class="message" data-v-5b331722>Released under the MIT License.</p><p class="copyright" data-v-5b331722>Copyright © 2022-present Wade Wang</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"db_mariadb.md\":\"36c7135e\",\"db_memcached.md\":\"0bdf84db\",\"db_mysql.md\":\"c9d27e3a\",\"db_pgsql.md\":\"8e1da583\",\"db_redis.md\":\"89e58510\",\"deploy_ubuntu20.04.md\":\"016a00b0\",\"dev_django.md\":\"17889166\",\"dev_php.md\":\"e764d8f4\",\"index.md\":\"0042743d\",\"prod_django.md\":\"8513561a\",\"prod_index.md\":\"d6da13ca\",\"prod_nginx.md\":\"a2471c89\",\"prod_octane.md\":\"f90078d6\",\"prod_php-fpm.md\":\"6e6290cb\",\"prod_scrapy.md\":\"a5cb0cc8\",\"prod_supervisor.md\":\"613885e1\",\"prod_taro.md\":\"f898a65b\",\"service_gitlab.md\":\"e42fd9f5\",\"service_jenkins.md\":\"36534a15\",\"service_mq.md\":\"dd4aea90\",\"service_webhook.md\":\"018c0e15\"}")</script>
-    <script type="module" async src="/docker-application/assets/app.973828c5.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"db_mariadb.md\":\"10718473\",\"db_memcached.md\":\"bf502c01\",\"db_mysql.md\":\"116f7961\",\"db_pgsql.md\":\"4cac4e63\",\"db_redis.md\":\"7f82af7b\",\"deploy_ubuntu20.04.md\":\"890917fd\",\"dev_django.md\":\"221a8559\",\"dev_php.md\":\"2794fa0c\",\"index.md\":\"39457114\",\"prod_django.md\":\"bee0c5d1\",\"prod_index.md\":\"8fc2f7a4\",\"prod_nginx.md\":\"7715a03d\",\"prod_octane.md\":\"4f6a5c66\",\"prod_php-fpm.md\":\"ada0fc90\",\"prod_scrapy.md\":\"61230027\",\"prod_supervisor.md\":\"4a98b4c9\",\"prod_taro.md\":\"7651d3b1\",\"service_gitlab.md\":\"27184594\",\"service_jenkins.md\":\"b3f4255c\",\"service_mq.md\":\"0cc621b3\",\"service_webhook.md\":\"344e42a4\"}")</script>
+    <script type="module" async src="/docker-application/assets/app.dd17579a.js"></script>
     
   </body>
 </html>
