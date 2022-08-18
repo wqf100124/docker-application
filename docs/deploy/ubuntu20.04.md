@@ -229,6 +229,14 @@ sudo apt-get -y install postgresql
 配置
 /etc/postgresql/14/main
 
+### 设置时区
+
+/etc/postgresql/14/main/postgresql.conf
+```
+timezone = 'Asia/Shanghai'
+log_timezone = 'Asia/Shanghai'
+```
+
 ### 远程连接
 
 1.添加允许访问的IP和验证方式    
