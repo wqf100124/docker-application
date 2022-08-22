@@ -292,17 +292,24 @@ $ psql
 
 创建新用户
 ```sh
-$ create user test_user with password '123456';
+CREATE USER test_user WITH PASSWORD '123456';
 ```
 
-创建数据库
+创建数据库并分配用户
 ```sh
-$ create database test_db owner test_user;
+CREATE DATABASE test_db OWNER test_user;
 ```
 
 授权
 ```sh
-$ grant all privileges on database test_db to test_user;
+#将数据库 test_db 权限授权于 test_user
+GRANT ALL PRIVILEGES ON DATABASE test_db TO test_user;
+#将数据库所有表的所有权限都授权于 testUser
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO test_user;
+#并且不要忘记序列(如果有的话)：
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO test_user;
+#只读权限
+GRANT SELECT ON TABLE test_db TO test_user;
 ```
 
 ## Swap分区(小内存主机)
