@@ -14,6 +14,14 @@ $ useradd -d /home/wade -m -g root -s /usr/bin/bash wade
 $ apt install docker.io
 ```
 
+卸载
+```sh
+$ dpkg -l | grep docker
+```
+```sh
+$ apt remove --purge docker.io
+```
+
 创建网络
 ```sh
 $ docker network create --subnet=172.16.0.0/24 web
