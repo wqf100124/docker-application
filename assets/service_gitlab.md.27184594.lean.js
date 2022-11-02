@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t,a as r}from"./app.dd17579a.js";const h=JSON.parse('{"title":"Gitlab","description":"","frontmatter":{},"headers":[],"relativePath":"service/gitlab.md"}'),s={name:"service/gitlab.md"},l=r("",3),i=[l];function o(c,n,p,b,g,d){return t(),a("div",null,i)}var m=e(s,[["render",o]]);export{h as __pageData,m as default};
