@@ -27,6 +27,7 @@ export default defineConfig({
                 items: [
                     {text: 'PHP', link: '/dev/php'},
                     {text: 'Django', link: '/dev/django'},
+                    {text: 'Scrapy', link: '/dev/scrapy'},
                 ]
             },
             {
@@ -39,7 +40,6 @@ export default defineConfig({
                     {text: 'Supervisor', link: '/prod/supervisor'},
                     {text: 'Taro', link: '/prod/taro'},
                     {text: 'Django', link: '/prod/django'},
-                    {text: 'Scrapy', link: '/prod/scrapy'},
                 ]
             },
             {
@@ -75,6 +75,7 @@ export default defineConfig({
                     items: [
                         {text: 'PHP', link: '/dev/php'},
                         {text: 'Django', link: '/dev/django'},
+                        {text: 'Scrapy', link: '/dev/scrapy'},
                     ]
                 }
             ],
@@ -89,7 +90,6 @@ export default defineConfig({
                         {text: 'Supervisor', link: '/prod/supervisor'},
                         {text: 'Taro', link: '/prod/taro'},
                         {text: 'Django', link: '/prod/django'},
-                        {text: 'Scrapy', link: '/prod/scrapy'},
                     ]
                 }
             ],

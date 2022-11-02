@@ -1,4 +1,4 @@
-# PHP开发环境
+# PHP本地开发环境
 
 包含软件
 - nginx
@@ -33,7 +33,7 @@ $ docker network create --subnet=172.16.0.0/24 web
 
 ```sh
 $ docker run -d \
---name dev \
+--name web \
 --network web \
 -p 80:80 \
 -v /var/web/project:/var/web/project \
@@ -42,7 +42,15 @@ $ docker run -d \
 wangqifei/dev
 ```
 
-### nginx
+### Nginx
+
+站点配置
+`/etc/nginx/conf.d`
+
+可用模板
+`/etc/nginx/sites-available`
+
+基础命令
 ```sh
 $ docker exec web nginx -s {stop|quit|reopen|reload}
 ```

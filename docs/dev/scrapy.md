@@ -1,4 +1,4 @@
-#  Scrapy
+# Scrapy(爬虫)
 
 ## 构建镜像
 ```sh
@@ -34,13 +34,21 @@ $ scrapy genspider -t crawl example example.com
 $ scrapy crawl example -O example.json --nolog
 
 # 全局(有些问题)
-$ scrapy runspider /var/web/project/spider/hjd/spider/spiders/sites.py --nolog
+$ scrapy runspider /var/web/project/spider/example/spider/spiders/sites.py --nolog
 ```
 
 ```sh
 $ docker exec scrapy scrapy crawl sites --nolog
+```
+
+```sh
 $ docker exec scrapy scrapy crawl threads --nolog
+```
+
+```sh
 $ docker exec scrapy scrapy crawl reads --nolog
 ```
 
 ##  存入数据库
+
+待完善...
