@@ -6,13 +6,13 @@ export default defineConfig({
     lang: 'zh-CN',
     base: '/docker-application/',
     head: [
-        ['link', {rel: 'shortcut icon', href: '/logo.svg'}]
+        ['link', {rel: 'shortcut icon', href: '/docker-application/image/logo.svg'}]
     ],
     themeConfig: {
         editLink: false,
         logo: {
-            light: '/logo.svg',
-            dark: '/logo-dark.svg',
+            light: '/image/logo.svg',
+            dark: '/image/logo.svg',
         },
         socialLinks: [
             {icon: 'github', link: 'https://github.com/wqf100124/docker-application'},
