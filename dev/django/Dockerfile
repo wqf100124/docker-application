@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL author="Wade Wang"
 LABEL description="The python django environment."
 WORKDIR /var/web/project/django

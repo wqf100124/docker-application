@@ -2,9 +2,14 @@
 
 ## 构建镜像
 
+### php8.2
+```sh
+$ docker build -t wangqifei/octane:php8.2 -t wangqifei/octane:latest --no-cache ./prod/php/octane
+```
+
 ### php8.1
 ```sh
-$ docker build -t wangqifei/octane:php8.1 -t wangqifei/octane:latest --no-cache ./prod/php/octane
+$ docker build -t wangqifei/octane:php8.1 --build-arg version=8.1 --no-cache ./prod/php/octane
 ```
 
 ### php8.0

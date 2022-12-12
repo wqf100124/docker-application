@@ -2,9 +2,14 @@
 
 ## 构建镜像
 
+### php8.2
+```sh
+$ docker build -t wangqifei/php-fpm:8.2 -t wangqifei/php-fpm:latest --no-cache ./prod/php/php-fpm
+```
+
 ### php8.1
 ```sh
-$ docker build -t wangqifei/php-fpm:8.1 -t wangqifei/php-fpm:latest --no-cache ./prod/php/php-fpm
+$ docker build -t wangqifei/php-fpm:8.1 --build-arg version=8.1 --no-cache ./prod/php/php-fpm
 ```
 
 ### php8.0

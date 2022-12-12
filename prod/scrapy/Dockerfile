@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL author="rt.wadewang"
 LABEL description="The python scrapy development environment."
 WORKDIR /var/web/project/scrapy
