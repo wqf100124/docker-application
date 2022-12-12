@@ -127,19 +127,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ~/web/project
+      device: /Users/wade/web/project
   nginx:
     name: nginx
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ~/web/service/nginx/conf.d
+      device: /Users/wade/web/service/nginx/conf.d
   pgsql:
     name: pgsql
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ~/web/service/pgsql
+      device: /Users/wade/web/service/pgsql
 ```
