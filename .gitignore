@@ -13,3 +13,5 @@
 *.sw?
 
 node_modules
+
+docs/.vitepress/cache

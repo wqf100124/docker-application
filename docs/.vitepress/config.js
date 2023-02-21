@@ -1,8 +1,8 @@
 import {defineConfig} from 'vitepress';
 
 export default defineConfig({
-    title: 'Docker笔记',
-    description: '记录在开发和生产环境中的Docker使用笔记',
+    title: '开发笔记',
+    description: '记录日常在开发、生产以及部署过程中遇到的问题和解决方案。',
     lang: 'zh-CN',
     base: '/docker-application/',
     head: [

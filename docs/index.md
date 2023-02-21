@@ -1,13 +1,13 @@
 ---
 layout: home
-title: Docker笔记 - 记录日常在开发、生产以及部署过程中遇到的问题和解决方案
+title: 开发笔记 - 记录日常在开发、生产以及部署过程中遇到的问题和解决方案
 
 hero:
   image:
     src: /image/hero.svg
     alt: logo
-  name: Docker笔记
-  text: 谨用于日常记录，以备在必要的时候查阅。
+  name: 开发笔记
+  text: 常见问题解决方案
   tagline: 开发、生产、部署
   actions:
     - theme: brand

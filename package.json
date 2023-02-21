@@ -4,7 +4,7 @@
   "description": "docker application",
   "main": "index.js",
   "repository": "https://github.com/wqf100124/docker-application",
-  "author": "wade wang",
+  "author": "Wade Wang",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -12,7 +12,7 @@
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.28",
-    "vue": "^3.2.41"
+    "vitepress": "^1.0.0-alpha.47",
+    "vue": "^3.2.47"
   }
 }
