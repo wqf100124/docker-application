@@ -8,24 +8,24 @@
 
 ## 构建镜像
 
-php8.2
+php8.2/latest
 ```sh
-$ docker build -t wangqifei/dev:php8.2 -t wangqifei/dev:latest --no-cache ./dev/php
+$ yarn dev:latest
 ```
 
 php8.1
 ```sh
-$ docker build -t wangqifei/dev:php8.1 --build-arg version=8.1 --no-cache ./dev/php
+$ yarn dev:8.1
 ```
 
 php8.0
 ```sh
-$ docker build -t wangqifei/dev:php8.0 --build-arg version=8.0 --no-cache ./dev/php
+$ yarn dev:8.0
 ```
 
 php7.4
 ```sh
-$ docker build -t wangqifei/dev:php7.4 --build-arg version=7.4 --no-cache ./dev/php
+$ yarn dev:7.4
 ```
 
 ## 创建网络

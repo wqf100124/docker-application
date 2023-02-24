@@ -9,7 +9,18 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "dev:latest": "docker build -t wangqifei/dev:php8.2 -t wangqifei/dev:latest --no-cache ./dev/php",
+    "dev:8.1": "docker build -t wangqifei/dev:php8.1 --build-arg version=8.1 --no-cache ./dev/php",
+    "dev:8.0": "docker build -t wangqifei/dev:php8.0 --build-arg version=8.0 --no-cache ./dev/php",
+    "dev:7.4": "docker build -t wangqifei/dev:php7.4 --build-arg version=7.4 --no-cache ./dev/php",
+    "php-fpm:latest": "docker build -t wangqifei/php-fpm:8.2 -t wangqifei/php-fpm:latest --no-cache ./prod/php/php-fpm",
+    "php-fpm:8.1": "docker build -t wangqifei/php-fpm:8.1 --build-arg version=8.1 --no-cache ./prod/php/php-fpm",
+    "php-fpm:8.0": "docker build -t wangqifei/php-fpm:8.0 --build-arg version=8.0 --no-cache ./prod/php/php-fpm",
+    "php-fpm:7.4": "docker build -t wangqifei/php-fpm:7.4 --build-arg version=7.4 --no-cache ./prod/php/php-fpm",
+    "octane:latest": "docker build -t wangqifei/octane:php8.2 -t wangqifei/octane:latest --no-cache ./prod/php/octane",
+    "octane:8.1": "docker build -t wangqifei/octane:php8.1 --build-arg version=8.1 --no-cache ./prod/php/octane",
+    "octane:8.0": "docker build -t wangqifei/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane"
   },
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.47",

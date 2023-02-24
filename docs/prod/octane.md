@@ -2,19 +2,19 @@
 
 ## 构建镜像
 
-### php8.2
+### php8.2/latest
 ```sh
-$ docker build -t wangqifei/octane:php8.2 -t wangqifei/octane:latest --no-cache ./prod/php/octane
+$ yarn octane:latest
 ```
 
 ### php8.1
 ```sh
-$ docker build -t wangqifei/octane:php8.1 --build-arg version=8.1 --no-cache ./prod/php/octane
+$ yarn octane:8.1
 ```
 
 ### php8.0
 ```sh
-$ docker build -t wangqifei/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane
+$ yarn octane:8.0
 ```
 
 ## 安装依赖
