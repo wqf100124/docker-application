@@ -79,6 +79,7 @@ services:
   web:
     image: wangqifei/dev:php8.2
     container_name: web
+    privileged: true
     volumes:
       - project:/var/web/project
       - nginx:/etc/nginx/conf.d
@@ -88,20 +89,10 @@ services:
     ports:
       - "80:80"
     restart: always
-    depends_on:
-      - redis
-  redis:
-    image: redis:alpine
-    container_name: redis
-    networks:
-      web:
-        ipv4_address: 172.16.0.63
-    ports:
-      - "6379:6379"
-    restart: always
   pgsql:
     image: postgres:13-alpine
     container_name: pgsql
+    privileged: true
     networks:
       web:
         ipv4_address: 172.16.0.54
