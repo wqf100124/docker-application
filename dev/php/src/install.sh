@@ -24,6 +24,7 @@ php${1}-amqp \
 php${1}-bcmath \
 php${1}-curl \
 php${1}-mbstring \
+php${1}-memcache \
 php${1}-memcached \
 php${1}-xml \
 php${1}-xmlrpc \
@@ -42,9 +43,9 @@ php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');
 php composer-setup.php --install-dir=/usr/bin --filename=composer;
 rm composer-setup.php
 # ---------- memcached ----------
-apk add --no-cache memcached
+apt-get install -y memcached
 # ---------- redis ----------
-apk add --no-cache redis
+apt-get install -y redis-server
 # ---------- init ----------
 mkdir -p /run/php
 chmod -R 777 /run/php

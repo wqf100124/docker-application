@@ -4,7 +4,7 @@
 
 ### php8.2/latest
 ```sh
-$ yarn octane:latest
+$ yarn octane:8.2
 ```
 
 ### php8.1

@@ -4,7 +4,7 @@
 
 ### php8.2/latest
 ```sh
-$ yarn php-fpm:latest
+$ yarn php-fpm:8.2
 ```
 
 ### php8.1

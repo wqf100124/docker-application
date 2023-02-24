@@ -10,7 +10,7 @@
 
 php8.2/latest
 ```sh
-$ yarn dev:latest
+$ yarn dev:8.2
 ```
 
 php8.1

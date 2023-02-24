@@ -18,6 +18,8 @@ php${1}-amqp \
 php${1}-bcmath \
 php${1}-curl \
 php${1}-mbstring \
+php${1}-memcache \
+php${1}-memcached \
 php${1}-xml \
 php${1}-xmlrpc \
 php${1}-redis \
