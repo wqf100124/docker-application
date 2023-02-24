@@ -7,7 +7,7 @@
     <meta name="description" content="记录日常在开发、生产以及部署过程中遇到的问题和解决方案。">
     <link rel="preload stylesheet" href="/docker-application/assets/style.5b241517.css" as="style">
     <link rel="modulepreload" href="/docker-application/assets/app.7041339b.js">
-    <link rel="modulepreload" href="/docker-application/assets/dev_php.md.e3bd4792.lean.js">
+    <link rel="modulepreload" href="/docker-application/assets/dev_php.md.94705850.lean.js">
     
     <link rel="shortcut icon" href="/docker-application/image/logo.svg">
   <script id="check-dark-light">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
@@ -34,6 +34,7 @@
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">web</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">image</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">wangqifei/dev:php8.2</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">container_name</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">web</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">privileged</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#FF9CAC;">true</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">volumes</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">project:/var/web/project</span></span>
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">nginx:/etc/nginx/conf.d</span></span>
@@ -43,20 +44,10 @@
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">ports</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">80:80</span><span style="color:#89DDFF;">&quot;</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">restart</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">always</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">depends_on</span><span style="color:#89DDFF;">:</span></span>
-<span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">redis</span></span>
-<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">redis</span><span style="color:#89DDFF;">:</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">image</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">redis:alpine</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">container_name</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">redis</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">networks</span><span style="color:#89DDFF;">:</span></span>
-<span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#F07178;">web</span><span style="color:#89DDFF;">:</span></span>
-<span class="line"><span style="color:#A6ACCD;">        </span><span style="color:#F07178;">ipv4_address</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">172.16.0.63</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">ports</span><span style="color:#89DDFF;">:</span></span>
-<span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">6379:6379</span><span style="color:#89DDFF;">&quot;</span></span>
-<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">restart</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">always</span></span>
 <span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#F07178;">pgsql</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">image</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">postgres:13-alpine</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">container_name</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">pgsql</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">privileged</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#FF9CAC;">true</span></span>
 <span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#F07178;">networks</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#F07178;">web</span><span style="color:#89DDFF;">:</span></span>
 <span class="line"><span style="color:#A6ACCD;">        </span><span style="color:#F07178;">ipv4_address</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">172.16.0.54</span></span>
@@ -98,7 +89,7 @@
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#F07178;">o</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">bind</span></span>
 <span class="line"><span style="color:#A6ACCD;">      </span><span style="color:#F07178;">device</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#C3E88D;">/Users/wade/web/service/pgsql</span></span>
 <span class="line"></span></code></pre></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-c5936a1e data-v-e033cd21><!----><div class="prev-next" data-v-e033cd21><div class="pager" data-v-e033cd21><!----></div><div class="pager" data-v-e033cd21><a class="pager-link next" href="/docker-application/dev/django.html" data-v-e033cd21><span class="desc" data-v-e033cd21>下一条</span><span class="title" data-v-e033cd21>Django</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-93a960b4 data-v-d24360a6><div class="container" data-v-d24360a6><p class="message" data-v-d24360a6>Released under the MIT License.</p><p class="copyright" data-v-d24360a6>Copyright © 2022-present Wade Wang</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"prod_index.md\":\"8c727089\",\"db_mariadb.md\":\"333e59dd\",\"db_memcached.md\":\"e792bcb0\",\"db_mysql.md\":\"26daa93c\",\"db_pgsql.md\":\"995f5495\",\"db_redis.md\":\"dca046e2\",\"deploy_ubuntu20.04.md\":\"63c3202f\",\"dev_django.md\":\"cabe8424\",\"dev_php.md\":\"e3bd4792\",\"prod_nginx.md\":\"4cb6b84c\",\"dev_scrapy.md\":\"50f91a5f\",\"index.md\":\"0d52959b\",\"prod_django.md\":\"d93a3ade\",\"prod_octane.md\":\"d126526d\",\"prod_php-fpm.md\":\"8623543e\",\"prod_supervisor.md\":\"019d5874\",\"prod_taro.md\":\"ba332418\",\"service_gitlab.md\":\"9c45dff8\",\"service_jenkins.md\":\"1b564986\",\"service_mq.md\":\"750c2238\",\"service_webhook.md\":\"d3c32f78\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"db_mariadb.md\":\"333e59dd\",\"service_webhook.md\":\"d3c32f78\",\"dev_django.md\":\"cabe8424\",\"prod_index.md\":\"8c727089\",\"db_mysql.md\":\"26daa93c\",\"prod_nginx.md\":\"4cb6b84c\",\"prod_taro.md\":\"ba332418\",\"prod_php-fpm.md\":\"8623543e\",\"prod_supervisor.md\":\"019d5874\",\"service_jenkins.md\":\"1b564986\",\"prod_django.md\":\"d93a3ade\",\"service_gitlab.md\":\"9c45dff8\",\"prod_octane.md\":\"d126526d\",\"db_memcached.md\":\"e792bcb0\",\"db_pgsql.md\":\"995f5495\",\"db_redis.md\":\"dca046e2\",\"service_mq.md\":\"750c2238\",\"deploy_ubuntu20.04.md\":\"63c3202f\",\"dev_php.md\":\"94705850\",\"dev_scrapy.md\":\"50f91a5f\",\"index.md\":\"0d52959b\"}")</script>
     <script type="module" async src="/docker-application/assets/app.7041339b.js"></script>
     
   </body>
