@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 LABEL author="928988368@qq.com"
-LABEL description="The local web development environment.."
+LABEL description="The local web development environment."
 ARG version="8.2"
 WORKDIR /var/web/project
 COPY src /tmp

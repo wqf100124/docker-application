@@ -55,6 +55,7 @@ export default defineConfig({
                         {text: 'PHP', link: '/dev/php'},
                         {text: 'Django', link: '/dev/django'},
                         {text: 'Scrapy', link: '/dev/scrapy'},
+                        {text: 'Nodejs项目', link: '/dev/nodejs'},
                     ]
                 }
             ],
