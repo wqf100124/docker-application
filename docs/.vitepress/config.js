@@ -41,6 +41,10 @@ export default defineConfig({
             {
                 text: '原生部署',
                 link: '/deploy/ubuntu'
+            },
+            {
+                text: '常见问题',
+                link: '/question/'
             }
         ],
         sidebar: {
@@ -99,6 +103,14 @@ export default defineConfig({
                         {text: 'Cron(定时任务)', link: '/deploy/cron'},
                         {text: 'Webhook', link: '/deploy/webhook'},
                         {text: 'Jenkins', link: '/deploy/jenkins'},
+                    ]
+                }
+            ],
+            '/question/': [
+                {
+                    text: '常见问题',
+                    items: [
+                        {text: 'Linux 挂载数据盘', link: '/question/disk'},
                     ]
                 }
             ]
