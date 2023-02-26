@@ -1,17 +1,15 @@
 # WebHook
 
 Github：[https://github.com/adnanh/webhook](https://github.com/adnanh/webhook)
+
 Github：[https://hub.docker.com/r/almir/webhook](https://hub.docker.com/r/almir/webhook)
 
 
 1.安装
+
+Ubuntu
 ```sh
 $ sudo apt-get install webhook
-```
-
-Docker
-```sh
-docker run -d -p 9000:9000 --name=webhook wangqifei/web:webhook
 ```
 
 2.配置域名

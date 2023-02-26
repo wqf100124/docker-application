@@ -1,8 +1,6 @@
-# MQ
+# RabbitMQ
 
-## RabbitMQ
-
-### 创建容器
+## 创建容器
 ```sh
 $ docker run -d \
   --restart always \

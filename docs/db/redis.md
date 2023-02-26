@@ -10,3 +10,18 @@ $ docker run -d \
     --restart always \
     redis:alpine
 ```
+
+docker-compose.yml
+```yml
+version: "3"
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    privileged: true
+    networks:
+      web:
+        ipv4_address: 172.16.0.63
+    ports:
+      - "6379:6379"
+```

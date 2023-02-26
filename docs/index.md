@@ -6,9 +6,9 @@ hero:
   image:
     src: /image/hero.svg
     alt: logo
-  name: 开发笔记
-  text: 常见问题解决方案
-  tagline: 开发、生产、部署
+  name: Development
+  text: 开发/生产/部署
+  tagline: 记录日常开发中遇到的问题和解决方法
   actions:
     - theme: brand
       text: 开发环境

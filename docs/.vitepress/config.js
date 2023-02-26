@@ -24,54 +24,29 @@ export default defineConfig({
         nav: [
             {
                 text: '开发环境',
-                items: [
-                    {text: 'PHP', link: '/dev/php'},
-                    {text: 'Django', link: '/dev/django'},
-                    {text: 'Scrapy', link: '/dev/scrapy'},
-                ]
+                link: '/dev/php'
             },
             {
                 text: '生产环境',
-                items: [
-                    {text: '基础配置', link: '/prod/'},
-                    {text: 'Nginx', link: '/prod/nginx'},
-                    {text: 'PHP-FPM', link: '/prod/php-fpm'},
-                    {text: 'Laravel Octane', link: '/prod/octane'},
-                    {text: 'Supervisor', link: '/prod/supervisor'},
-                    {text: 'Taro', link: '/prod/taro'},
-                    {text: 'Django', link: '/prod/django'},
-                ]
+                link: '/prod/'
             },
             {
                 text: '数据库',
-                items: [
-                    {text: 'Postgres', link: '/db/pgsql'},
-                    {text: 'Mysql', link: '/db/mysql'},
-                    {text: 'MariaDB', link: '/db/mariadb'},
-                    {text: 'Redis', link: '/db/redis'},
-                    {text: 'Memcached', link: '/db/memcached'},
-                ]
+                link: '/db/pgsql'
             },
             {
-                text: '依赖服务',
-                items: [
-                    {text: 'MQ', link: '/service/mq'},
-                    {text: 'Webhook', link: '/service/webhook'},
-                    {text: 'Jenkins', link: '/service/jenkins'},
-                    {text: 'Gitlab', link: '/service/gitlab'},
-                ]
+                text: '第三方服务',
+                link: '/service/rabbitmq'
             },
             {
                 text: '原生部署',
-                items: [
-                    {text: 'Ubuntu20.04', link: '/deploy/ubuntu20.04'},
-                ]
+                link: '/deploy/ubuntu'
             }
         ],
         sidebar: {
             '/dev/': [
                 {
-                    text: '开发环境',
+                    text: '开发环境容器',
                     items: [
                         {text: 'PHP', link: '/dev/php'},
                         {text: 'Django', link: '/dev/django'},
@@ -81,7 +56,7 @@ export default defineConfig({
             ],
             '/prod/': [
                 {
-                    text: '生产环境',
+                    text: '生产环境容器',
                     items: [
                         {text: '基础配置', link: '/prod/'},
                         {text: 'Nginx', link: '/prod/nginx'},
@@ -107,12 +82,11 @@ export default defineConfig({
             ],
             '/service/': [
                 {
-                    text: '依赖服务',
+                    text: '第三方服务',
                     items: [
-                        {text: 'MQ', link: '/service/mq'},
-                        {text: 'Webhook', link: '/service/webhook'},
-                        {text: 'Jenkins', link: '/service/jenkins'},
+                        {text: 'RabbitMQ', link: '/service/rabbitmq'},
                         {text: 'Gitlab', link: '/service/gitlab'},
+                        {text: 'Jenkins', link: '/service/jenkins'},
                     ]
                 }
             ],
@@ -120,7 +94,11 @@ export default defineConfig({
                 {
                     text: '原生部署',
                     items: [
-                        {text: 'Ubuntu20.04', link: '/deploy/ubuntu20.04'},
+                        {text: '宝塔面板', link: '/deploy/bt'},
+                        {text: 'Ubuntu', link: '/deploy/ubuntu'},
+                        {text: 'Cron(定时任务)', link: '/deploy/cron'},
+                        {text: 'Webhook', link: '/deploy/webhook'},
+                        {text: 'Jenkins', link: '/deploy/jenkins'},
                     ]
                 }
             ]

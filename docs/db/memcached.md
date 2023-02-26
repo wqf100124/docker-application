@@ -11,3 +11,18 @@ $ docker run -d \
     --restart always \
     memcached:alpine
 ```
+
+docker-compose.yml
+```yml
+version: "3"
+services:
+  memcached:
+    image: memcached:alpine
+    container_name: memcached
+    privileged: true
+    networks:
+      web:
+        ipv4_address: 172.16.0.11
+    ports:
+      - "11211:11211"
+```

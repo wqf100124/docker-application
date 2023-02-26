@@ -1,19 +1,77 @@
 # Mysql
 
 ## 创建容器
+
 ```sh
 $ docker run -d \
-    --name mysql \
+    --name mysql8.0 \
     --env MYSQL_ROOT_HOST=% \
     --env MYSQL_ROOT_PASSWORD=Ab123456 \
     --network web \
     --ip 172.16.0.33 \
     -p 3306:3306 \
-    -v /var/web/service/mysql:/var/lib/mysql \
+    -v ~/web/service/mysql8.0:/var/lib/mysql \
     --restart always \
-    mysql:5.7
+    mysql:8
 ```
 
+docker-compose.yml
+```yml
+version: "3"
+services:
+  mysql8.0:
+    image: mysql:8
+    container_name: mysql8.0
+    privileged: true
+    networks:
+      web:
+        ipv4_address: 172.16.0.33
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql8.0:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=Ab123456
+volumes:
+  mysql8.0:
+    name: mysql8.0
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/web/service/mysql8.0
+```
+
+docker-compose.yml
+```yml
+version: "3"
+services:
+  mysql5.7:
+    image: mysql:8
+    container_name: mysql5.7
+    privileged: true
+    networks:
+      web:
+        ipv4_address: 172.16.0.33
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql5.7:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=Ab123456
+volumes:
+  mysql5.7:
+    name: mysql5.7
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/web/service/mysql5.7
+```
+
+修改配置信息
 ```sh
 $ docker exec mysql echo "sql_mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION" >> /etc/mysql/conf.d/mysql.cnf
 ```

@@ -19,6 +19,35 @@ $ docker run -d \
     postgres:13-alpine
 ```
 
+docker-compose.yml
+```yml
+version: "3"
+services:
+  pgsql:
+    image: postgres:13-alpine
+    container_name: pgsql
+    privileged: true
+    networks:
+      web:
+        ipv4_address: 172.16.0.54
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgsql:/etc/postgresql
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Ab123456
+volumes:
+  pgsql:
+    name: pgsql
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/web/service/pgsql
+```
+
 ## 基础操作
 
 命令窗口
