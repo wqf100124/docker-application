@@ -1,4 +1,5 @@
 # Django
+
 python/pip/django
 
 ## 构建镜像
@@ -7,13 +8,20 @@ python/pip/django
 $ docker build -t wangqifei/django --no-cache ./prod/django
 ```
 
-##  运行容器
+## 运行容器
 
 ```sh
-$ docker run -d --name django --network web -p 8000:8000 -v /var/web/project/django:/var/web/project/django --restart always wangqifei/django
+$ docker run -d \
+  --name django  \
+  --network web  \
+  -p 80:80  \
+  -p 8000:8000  \
+  -v /var/web/project/django:/var/web/project/django  \
+  --restart always  \
+  wangqifei/django
 ```
 
-##  开发模式
+## 开发模式
 
 ```sh
 $ python3 manage.py runserver 0.0.0.0:8000
@@ -24,6 +32,7 @@ python -m django --version
 ```
 
 安装依赖
+
 ```sh
 $ pip install -r requerments.txt
 ```
@@ -36,19 +45,23 @@ location /static {
     root /www/wwwroot/43.139.215.50/zcxt/static;
 }
 ```
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 ## 部署
 
 ### uWSGI
+
 > uWSGI 文档提供了一个覆盖 Django，nginx，和 uWSGI（一个配置，多种适配）。以下文档专注于如何用 uWSGI 集成 Django。
 
 安装
+
 ```sh
 $ python -m pip install uwsgi
 ```
 
 项目配置
+
 ```ini
 uwsgi --chdir=/www/wwwroot/43.139.215.50/zcxt \
     --module=zcxt.wsgi:application \
@@ -64,6 +77,7 @@ uwsgi --chdir=/www/wwwroot/43.139.215.50/zcxt \
 ```
 
 uwsgi.ini
+
 ```ini
 [uwsgi]
 socket = /tmp/example.sock
@@ -87,22 +101,26 @@ daemonize=/var/log/uwsgi/zcxt.log
 ```
 
 运行
+
 ```sh
 $ uwsgi --ini /www/wwwroot/example/uwsgi.ini
 $ uwsgi --ini /www/wwwroot/43.139.215.50/zcxt/uwsgi.ini
 ```
 
 停止服务
+
 ```sh
 uwsgi --stop /tmp/project-example.pid
 ```
 
 重启服务
+
 ```sh
 uwsgi --reload /tmp/project-example.pid
 ```
 
 nginx
+
 ```ini
 server {
     listen       80;
@@ -135,9 +153,22 @@ location / {
 
 修改/www/wwwroot/example/settings.py，在ALLOWED_HOSTS里面添加域名就可以了。
 
-
 docker run -it \
 --name app \
 -p 8080:8080 \
 -v /Users/wade/web/project/html:/var/web/app \
 node:16-alpine sh
+
+
+docker run -d \
+--name django  \
+--network web  \
+-p 80:80  \
+-p 8000:8000  \
+-v /Users/wangqifei/web/project/work/django:/var/web/project/django  \
+--restart always  \
+wangqifei/django
+
+pip install numpy joblib xlrd -i https://mirrors.aliyun.com/pypi/simple
+
+nohup python3 manage.py runserver 0.0.0.0:80 &
