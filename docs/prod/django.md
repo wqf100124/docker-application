@@ -25,6 +25,7 @@ $ docker run -d \
 
 ```sh
 $ python3 manage.py runserver 0.0.0.0:8000
+$ nohup python3 manage.py runserver 0.0.0.0:80 &
 ```
 
 ```sh
@@ -35,6 +36,7 @@ python -m django --version
 
 ```sh
 $ pip install -r requerments.txt
+$ pip install numpy joblib xlrd -i https://mirrors.aliyun.com/pypi/simple
 ```
 
 nginx配置
@@ -88,23 +90,12 @@ pidfile=/tmp/project-example.pid
 vacuum=True
 max-requests=5000
 daemonize=/var/log/uwsgi/example.log
-
-[uwsgi]
-socket = /tmp/zcxt.sock
-chdir=/www/wwwroot/43.139.215.50/zcxt
-module=zcxt.wsgi:application
-master=True
-pidfile=/tmp/project-zcxt.pid
-vacuum=True
-max-requests=5000
-daemonize=/var/log/uwsgi/zcxt.log
 ```
 
 运行
 
 ```sh
 $ uwsgi --ini /www/wwwroot/example/uwsgi.ini
-$ uwsgi --ini /www/wwwroot/43.139.215.50/zcxt/uwsgi.ini
 ```
 
 停止服务
@@ -140,35 +131,4 @@ server {
         alias /www/wwwroot/example/static/; 
     }
 }
-
-location / {            
-        include  uwsgi_params;
-        uwsgi_pass unix:/tmp/zcxt.sock;
-        # uwsgi_param UWSGI_SCRIPT example.wsgi;
-        uwsgi_param UWSGI_CHDIR /www/wwwroot/43.139.215.50/zcxt;
-        index index.html index.htm;
-        client_max_body_size 35m;
-    }
 ```
-
-修改/www/wwwroot/example/settings.py，在ALLOWED_HOSTS里面添加域名就可以了。
-
-docker run -it \
---name app \
--p 8080:8080 \
--v /Users/wade/web/project/html:/var/web/app \
-node:16-alpine sh
-
-
-docker run -d \
---name django  \
---network web  \
--p 80:80  \
--p 8000:8000  \
--v /Users/wangqifei/web/project/work/django:/var/web/project/django  \
---restart always  \
-wangqifei/django
-
-pip install numpy joblib xlrd -i https://mirrors.aliyun.com/pypi/simple
-
-nohup python3 manage.py runserver 0.0.0.0:80 &

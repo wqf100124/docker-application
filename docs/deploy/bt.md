@@ -11,6 +11,11 @@ https://www.bt.cn/new/download.html
 $ bt default
 ```
 
+## 关闭SSL
+```sh
+$ rm -f /www/server/panel/data/ssl.pl && /etc/init.d/bt restart
+```
+
 ## 修改端口号
 
 编辑
