@@ -75,7 +75,7 @@ bt
 
 3.点击【禁用函数】，删除以下方法：
 ```ini
-putenv
+putenv, proc_open
 ```
 
 4.点击【安装扩展】，安装所需要的扩展如 `phpinfo`、`redis` 等
@@ -129,3 +129,26 @@ echo $(date "+%Y-%m-%d %H:%M:%S")
 ```
 
 点击【查看密钥】查看使用方法
+
+## PHP版本
+
+查看当前 php 版本的信息
+```sh
+$ ls -l /usr/bin/php
+```
+
+查看服务器上有多少个 php版本
+```sh
+$ ls /www/server/php
+```
+
+设置默认php版本
+```sh
+$ ln -sf /www/server/php/81/bin/php /usr/bin/php
+```
+
+验证
+```sh
+$ php -v
+```
+

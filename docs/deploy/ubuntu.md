@@ -158,6 +158,8 @@ $ php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php'
 && php composer-setup.php --install-dir=/usr/bin --filename=composer;
 ```
 
+阿里云镜像源：[https://developer.aliyun.com/composer](https://developer.aliyun.com/composer)
+
 ## Supervisor
 
 安装
