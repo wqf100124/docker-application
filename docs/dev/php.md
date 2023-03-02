@@ -10,22 +10,22 @@
 
 php8.2/latest
 ```sh
-$ yarn dev:8.2
+$ yarn dev:php8.2
 ```
 
 php8.1
 ```sh
-$ yarn dev:8.1
+$ yarn dev:php8.1
 ```
 
 php8.0
 ```sh
-$ yarn dev:8.0
+$ yarn dev:php8.0
 ```
 
 php7.4
 ```sh
-$ yarn dev:7.4
+$ yarn dev:php7.4
 ```
 
 ## 创建网络

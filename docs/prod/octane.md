@@ -4,17 +4,17 @@
 
 ### php8.2/latest
 ```sh
-$ yarn octane:8.2
+$ yarn octane:php8.2
 ```
 
 ### php8.1
 ```sh
-$ yarn octane:8.1
+$ yarn octane:php8.1
 ```
 
 ### php8.0
 ```sh
-$ yarn octane:8.0
+$ yarn octane:php8.0
 ```
 
 ## 安装依赖
