@@ -152,3 +152,9 @@ $ ln -sf /www/server/php/81/bin/php /usr/bin/php
 $ php -v
 ```
 
+使用指定的php版本安装composer依赖
+```sh
+$ /www/server/php/74/bin/php /usr/bin/composer install
+$ /www/server/php/81/bin/php /usr/bin/composer install
+```
+
