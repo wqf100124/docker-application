@@ -24,6 +24,19 @@ $ dpkg -l | grep docker
 $ apt remove --purge docker.io
 ```
 
+Docker Compose
+
+https://docs.docker.com/compose/install/
+
+源码安装
+
+```sh
+$ curl -SL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ docker-compose --version
+```
+
 创建网络
 ```sh
 $ docker network create --subnet=172.16.0.0/24 web
