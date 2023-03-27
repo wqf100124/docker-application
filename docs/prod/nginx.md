@@ -3,7 +3,7 @@
 ## 构建镜像
 
 ```sh
-$ docker build -t wangqifei/nginx:alpine --no-cache ./prod/nginx
+$ docker build -t i94m/nginx:alpine --no-cache ./prod/nginx
 ```
 
 ## 创建容器
@@ -14,11 +14,11 @@ $ docker run -d \
 --network web \
 -p 80:80 \
 -p 443:443 \
--v /var/web/service/php/8.1/run/php8.1-fpm.sock:/var/run/php/php8.1-fpm.sock:ro \
--v /var/web/service/nginx/conf.d:/etc/nginx/conf.d \
--v /var/web/project:/var/web/project \
+-v ~/web/service/php/8.1/run/php8.1-fpm.sock:/var/run/php/php8.1-fpm.sock:ro \
+-v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
+-v ~/web/apps:/apps \
 --restart always \
-wangqifei/nginx:alpine
+i94m/nginx:alpine
 ```
 
 ### Https Proxy
@@ -45,7 +45,7 @@ server {
     }
     
     server_tokens off;
-    root /var/web/project/shop/api/public;
+    root /apps/shop/api/public;
  
     index index.php;
  

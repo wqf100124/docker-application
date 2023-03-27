@@ -5,7 +5,7 @@ apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 # ---------- working directory ----------
-mkdir -p /var/web/project/django
+mkdir -p /app
 # ---------- python ----------
 apt-get install -y python3 python3-dev python3-pip
 mkdir /root/.pip

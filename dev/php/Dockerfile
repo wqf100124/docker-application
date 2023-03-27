@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 LABEL author="928988368@qq.com"
 LABEL description="The local web development environment."
 ARG version="8.2"
-WORKDIR /var/web/project
+WORKDIR /apps
 COPY src /tmp
 RUN apt-get update \
     && chmod +x /tmp/install.sh \

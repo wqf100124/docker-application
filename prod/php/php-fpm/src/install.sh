@@ -7,7 +7,7 @@ apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 # ---------- working directory ----------
-mkdir -p /var/web/project
+mkdir /apps
 # ---------- php ----------
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php

@@ -15,13 +15,13 @@ $ yarn php-fpm:8.1
 ### php8.0
 ```sh
 $ yarn php-fpm:8.0
-$ docker build -t wangqifei/php-fpm:8.0 --build-arg version=8.0 --no-cache ./prod/php/php-fpm
+$ docker build -t i94m/php-fpm:8.0 --build-arg version=8.0 --no-cache ./prod/php/php-fpm
 ```
 
 ### php7.4
 ```sh
 $ yarn php-fpm:7.4
-$ docker build -t wangqifei/php-fpm:7.4 --build-arg version=7.4 --no-cache ./prod/php/php-fpm
+$ docker build -t i94m/php-fpm:7.4 --build-arg version=7.4 --no-cache ./prod/php/php-fpm
 ```
 
 ## 创建容器
@@ -31,14 +31,14 @@ $ docker run -d \
 --name php8.1-fpm \
 --network web \
 --restart always \
--v /var/web/service/php/8.1/run:/var/run/php \
--v /var/web/project:/var/web/project \
-wangqifei/php-fpm:8.1
+-v ~/web/service/php/8.1/run:/var/run/php \
+-v ~/web/apps:/apps \
+i94m/php-fpm:8.1
 ```
 
 ### 赋予权限
 ```sh
-$ chmod -R 777 /var/web/service/php/8.1/run
+$ chmod -R 777 ~/web/service/php/8.1/run
 ```
 
 ## Nginx配置
@@ -49,7 +49,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name example.com;
-    root /var/web/project/example.com/public;
+    root /apps/example.com/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";

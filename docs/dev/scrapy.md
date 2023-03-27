@@ -2,13 +2,13 @@
 
 ## 构建镜像
 ```sh
-$ docker build -t wangqifei/scrapy --no-cache .
+$ docker build -t i94m/scrapy --no-cache .
 ```
 
 ## 运行容器
 
 ```sh
-$ docker run -d --name scrapy --network web -v /var/web/scrapy:/var/web/scrapy --restart always wangqifei/scrapy
+$ docker run -d --name scrapy --network web -v ~/web/scrapy:/app --restart always i94m/scrapy
 ```
 
 ## 创建爬虫项目
@@ -34,7 +34,7 @@ $ scrapy genspider -t crawl example example.com
 $ scrapy crawl example -O example.json --nolog
 
 # 全局(有些问题)
-$ scrapy runspider /var/web/project/spider/example/spider/spiders/sites.py --nolog
+$ scrapy runspider /app/spider/spiders/sites.py --nolog
 ```
 
 ```sh

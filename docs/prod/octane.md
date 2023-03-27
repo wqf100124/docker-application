@@ -28,7 +28,7 @@ $ php artisan octane:install
 默认使用swoole，如果要使用roadrunner，替换supervisor命令
 
 ```ini
-command=/usr/bin/php -d variables_order=EGPCS /var/web/project/app/artisan octane:start --server=roadrunner --host=0.0.0.0 --rpc-port=6001 --port=8000
+command=/usr/bin/php -d variables_order=EGPCS /app/artisan octane:start --server=roadrunner --host=0.0.0.0 --rpc-port=6001 --port=8000
 ```
 
 ## 创建容器
@@ -38,9 +38,9 @@ $ docker run -d \
 --name app \
 --network web \
 --restart always \
--v /var/web/project/app:/var/web/project/app \
--v /var/web/service/supervisor:/etc/supervisor/conf.d \
-wangqifei/octane
+-v ~/web/apps/app:/app \
+-v ~/web/service/supervisor:/etc/supervisor/conf.d \
+i94m/octane
 ```
 
 ## Nginx配置
@@ -69,7 +69,7 @@ server {
     }
     
     server_tokens off;
-    root /var/web/project/example/public;
+    root /apps/example/public;
  
     index index.php;
  

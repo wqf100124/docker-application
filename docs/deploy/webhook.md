@@ -41,9 +41,9 @@ server {
 运行
 ```sh
 # 测试
-webhook -hooks /var/web/servicd/webhook/webhooks.json -urlprefix 'webhooks' -port 9000 -verbose
+webhook -hooks ~/web/service/webhook/webhooks.json -urlprefix 'webhooks' -port 9000 -verbose
 # 后台运行
-webhook -hooks /var/web/servicd/webhook/webhooks.json -urlprefix 'webhooks' -port 9000 -nopanic &
+webhook -hooks ~/web/service/webhook/webhooks.json -urlprefix 'webhooks' -port 9000 -nopanic &
 
 # https
 -cert /path/to/cert.pem

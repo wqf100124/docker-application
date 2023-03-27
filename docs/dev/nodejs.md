@@ -7,7 +7,7 @@
 $ docker run -it \
   --name app \
   -p 8080:8080 \
-  -v /var/web/app:/var/web/app \
+  -v ~/web/app:/app \
   node:16-alpine sh
 ```
 

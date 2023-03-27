@@ -10,9 +10,9 @@ docker run -d \
     -p 80:80 \
     --name gitlab \
     --restart always \
-    -v /var/web/service/gitlab/config:/etc/gitlab \
-    -v /var/web/service/gitlab/logs:/var/log/gitlab \
-    -v /var/web/service/gitlab/data:/var/opt/gitlab \
+    -v ~/web/service/gitlab/config:/etc/gitlab \
+    -v ~/web/service/gitlab/logs:/var/log/gitlab \
+    -v ~/web/service/gitlab/data:/var/opt/gitlab \
     gitlab/gitlab-ce
 ```
 

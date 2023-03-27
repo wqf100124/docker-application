@@ -7,7 +7,7 @@ apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 # ---------- working directory ----------
-mkdir -p /var/web/project
+mkdir -p /app
 # ---------- php ----------
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php
@@ -43,7 +43,7 @@ touch /var/run/supervisor.sock
 chmod 755 /var/run/supervisor.sock
 # ---------- cron ----------
 apt-get install -y cron
-crontab -l | { cat; echo "* * * * * /usr/bin/php /var/web/project/app/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
+crontab -l | { cat; echo "* * * * * /usr/bin/php /app/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
 # ---------- init ----------
 mkdir -p /run/php && chmod -R 777 /run/php
 mv /tmp/entrypoint.sh /run/entrypoint.sh

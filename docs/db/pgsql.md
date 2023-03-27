@@ -11,10 +11,10 @@ $ docker run -d \
     --network web \
     --ip 172.16.0.54 \
     -p 5432:5432 \
-    -v /var/web/service/pgsql/conf:/etc/postgresql \
-    -v /var/web/service/pgsql/log:/var/log/postgresql \
-    -v /var/web/service/pgsql/data:/var/lib/postgresql/data \
-    -v /var/web/service/pgsql/backup:/var/lib/postgresql/backup \
+    -v ~/web/service/pgsql/conf:/etc/postgresql \
+    -v ~/web/service/pgsql/log:/var/log/postgresql \
+    -v ~/web/service/pgsql/data:/var/lib/postgresql/data \
+    -v ~/web/service/pgsql/backup:/var/lib/postgresql/backup \
     --restart always \
     postgres:13-alpine
 ```

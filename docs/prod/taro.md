@@ -10,7 +10,7 @@
 
 taro3
 ```sh
-$ docker build -t wangqifei/taro:3 -t wangqifei/taro:latest --no-cache ./build
+$ docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./build
 ```
 
 ## 创建容器
@@ -18,6 +18,6 @@ $ docker build -t wangqifei/taro:3 -t wangqifei/taro:latest --no-cache ./build
 ```sh
 $ docker run -d \
 --name taro \
--v /var/web/project/app:/var/web/project/app \
-wangqifei/taro
+-v ~/web/apps/app:/app \
+i94m/taro
 ```

@@ -4,7 +4,7 @@ nginx/php/composer/supervisor
 
 ## 构建镜像
 ```shell
-docker build -t wangqifei/shop:prod -t wangqifei/shop:latest --no-cache .
+docker build -t i94m/shop:prod -t i94m/shop:latest --no-cache .
 ```
 
 ## 创建网络
@@ -22,10 +22,10 @@ docker run -d \
 -p 80:80 \
 -p 443:443 \
 -v ~/.ssh:/root/.ssh \
--v /var/web/project/shop:/var/web/project/shop \
--v /var/web/service/nginx/conf.d:/etc/nginx/conf.d \
+-v ~/web/apps/shop:/apps/shop \
+-v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
 --restart always \
-wangqifei/web:shop
+i94m/web:shop
 ```
 
 nginx

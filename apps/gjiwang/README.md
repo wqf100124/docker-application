@@ -17,8 +17,8 @@ docker run -d \
 --name php8.1-fpm \
 --network web \
 --restart always \
--v /var/web/service/php/8.1/run:/var/run/php \
-wangqifei/php-fpm:8.1
+-v ~/web/service/php/8.1/run:/var/run/php \
+i94m/php-fpm:8.1
 ```
 
 ## Nginx
@@ -29,10 +29,10 @@ docker run -d \
 --network web \
 -p 80:80 \
 -p 443:443 \
--v /var/web/service/php/8.1/run:/var/run/php \
--v /var/web/service/nginx/conf.d:/etc/nginx/conf.d \
--v /var/web/project:/var/web/project \
-wangqifei/nginx:alpine
+-v ~/web/service/php/8.1/run:/var/run/php \
+-v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
+-v ~/web/apps:/apps \
+i94m/nginx:alpine
 ```
 
 ## app
@@ -40,8 +40,8 @@ wangqifei/nginx:alpine
 ```shell
 docker run -d \
 --name store-app \
--v /var/web/project/store/prod/app:/var/web/project/app \
-wangqifei/taro
+-v ~/web/apps/store/prod/app:/app \
+i94m/taro
 ```
 
 ## Api
@@ -53,10 +53,10 @@ docker run -d \
 --network web \
 --ip 172.16.0.101 \
 --restart always \
--v /var/web/cert/pay/wechat:/var/web/cert/pay/wechat \
--v /var/web/project/store/prod/api:/var/web/project/app \
--v /var/web/service/supervisor/prod/api:/etc/supervisor/conf.d \
-wangqifei/octane:php8.1
+-v ~/web/cert/pay/wechat:/opt/cert/pay/wechat \
+-v ~/web/apps/store/prod/api:/app \
+-v ~/web/service/supervisor/prod/api:/etc/supervisor/conf.d \
+i94m/octane:php8.1
 
 # store-merchant
 docker run -d \
@@ -64,10 +64,10 @@ docker run -d \
 --network web \
 --ip 172.16.0.102 \
 --restart always \
--v /var/web/cert/pay/wechat:/var/web/cert/pay/wechat \
--v /var/web/project/store/prod/merchant:/var/web/project/app \
--v /var/web/service/supervisor/prod/merchant:/etc/supervisor/conf.d \
-wangqifei/octane:php8.1
+-v ~/web/cert/pay/wechat:/opt/cert/pay/wechat \
+-v ~/web/apps/store/prod/merchant:/app \
+-v ~/web/service/supervisor/prod/merchant:/etc/supervisor/conf.d \
+i94m/octane:php8.1
 
 #  dev-store-api
 docker run -d \
@@ -75,10 +75,10 @@ docker run -d \
 --network web \
 --ip 172.16.0.103 \
 --restart always \
--v /var/web/cert/pay/wechat:/var/web/cert/pay/wechat \
--v /var/web/project/store/dev/api:/var/web/project/app \
--v /var/web/service/supervisor/dev/api:/etc/supervisor/conf.d \
-wangqifei/octane:php8.1
+-v ~/web/cert/pay/wechat:/opt/cert/pay/wechat \
+-v ~/web/apps/store/dev/api:/app \
+-v ~/web/service/supervisor/dev/api:/etc/supervisor/conf.d \
+i94m/octane:php8.1
 
 # dev-store-merchant
 docker run -d \
@@ -86,10 +86,10 @@ docker run -d \
 --network web \
 --ip 172.16.0.104 \
 --restart always \
--v /var/web/cert/pay/wechat:/var/web/cert/pay/wechat \
--v /var/web/project/store/dev/merchant:/var/web/project/app \
--v /var/web/service/supervisor/dev/merchant:/etc/supervisor/conf.d \
-wangqifei/octane:php8.1
+-v ~/web/cert/pay/wechat:/opt/cert/pay/wechat \
+-v ~/web/apps/store/dev/merchant:/app \
+-v ~/web/service/supervisor/dev/merchant:/etc/supervisor/conf.d \
+i94m/octane:php8.1
 ```
 
 laravel-octane.ini for supervisor
@@ -97,8 +97,8 @@ laravel-octane.ini for supervisor
 ```ini
 [program:octane]
 process_name=%(program_name)s_%(process_num)02d
-command=/usr/bin/php /var/web/project/app/artisan octane:start --server=swoole --host=127.0.0.1 --port=8000
-stdout_logfile=/var/web/project/app/storage/logs/octane.log
+command=/usr/bin/php /app/artisan octane:start --server=swoole --host=127.0.0.1 --port=8000
+stdout_logfile=/app/storage/logs/octane.log
 autostart=true
 autorestart=true
 user=root
@@ -112,13 +112,13 @@ laravel-queue.ini for supervisor
 ```ini
 [program:queue]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/web/project/app/artisan queue:work --sleep=3 --tries=3
+command=php /app/artisan queue:work --sleep=3 --tries=3
 autostart=true
 autorestart=true
 user=root
 numprocs=8
 redirect_stderr=true
-stdout_logfile=/var/web/project/app/storage/logs/queue.log
+stdout_logfile=/app/storage/logs/queue.log
 stopwaitsecs=3600
 ```
 
@@ -134,7 +134,7 @@ docker run -d \
 --env POSTGRES_PASSWORD=hA2aR6iA1b \
 --network web \
 --ip 172.16.0.56 \
--v /var/web/service/pgsql/backup:/var/lib/postgresql/backup \
+-v ~/web/service/pgsql/backup:/var/lib/postgresql/backup \
 --restart always \
 postgres:13-alpine
 ```

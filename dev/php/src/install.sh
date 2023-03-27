@@ -7,12 +7,12 @@ apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 # ---------- working directory ----------
-mkdir -p /var/web/project /var/web/backup
+mkdir /apps
 # ---------- nginx ----------
 apt-get install -y nginx
 cp /tmp/nginx.conf /etc/nginx/nginx.conf
 cp /tmp/sites/* /etc/nginx/sites-available
-mv /tmp/htdocs /var/web/htdocs
+mv /tmp/htdocs /var/www/htdocs
 # ---------- php ----------
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php

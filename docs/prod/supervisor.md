@@ -6,13 +6,13 @@
 ```ini
 [program:horizon]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/web/project/app/artisan horizon
+command=php /app/artisan horizon
 autostart=true
 autorestart=true
 user=root
 numprocs=8
 redirect_stderr=true
-stdout_logfile=/var/web/project/app/storage/logs/horizon.log
+stdout_logfile=/app/storage/logs/horizon.log
 stopwaitsecs=3600
 ```
 
@@ -21,12 +21,12 @@ stopwaitsecs=3600
 ```ini
 [program:queue]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/web/project/app/artisan queue:work --sleep=3 --tries=3
+command=php /app/artisan queue:work --sleep=3 --tries=3
 autostart=true
 autorestart=true
 user=root
 numprocs=8
 redirect_stderr=true
-stdout_logfile=/var/web/project/app/storage/logs/queue.log
+stdout_logfile=/app/storage/logs/queue.log
 stopwaitsecs=3600
 ```

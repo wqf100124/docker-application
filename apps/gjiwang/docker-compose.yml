@@ -3,7 +3,7 @@ version: "3"
 services:
   php:
     container_name: php8.1
-    image: wangqifei/web:php8.1
+    image: i94m/web:php8.1
     restart: always
     networks:
       web:
@@ -14,7 +14,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - project:/var/web/project
+      - project:/apps
       - php81-supervisor:/etc/supervisor/conf.d
       - php81-run:/var/run/php
 
@@ -35,13 +35,13 @@ services:
       - "443:443"
     volumes:
       - nginx:/etc/nginx/conf.d
-      - project:/var/web/project
+      - project:/apps
 
   pgsql:
     container_name: pgsql
     image: postgres:13-alpine
     restart: always
-    networks: 
+    networks:
       web:
         ipv4_address: 172.16.0.54
     ports:
@@ -59,7 +59,7 @@ services:
     container_name: redis
     image: redis:alpine
     restart: always
-    networks: 
+    networks:
       web:
         ipv4_address: 172.16.0.63
 
@@ -70,49 +70,49 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/project"
+      device: ~/web/apps
   nginx:
     name: nginx
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/nginx/conf.d"
+      device: ~/web/service/nginx/conf.d
   pgsql-conf:
     name: pgsql-conf
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/pgsql/conf"
+      device: ~/web/service/pgsql/conf
   pgsql-data:
     name: pgsql-data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/pgsql/data"
+      device: ~/web/service/pgsql/data
   pgsql-backup:
     name: pgsql-backup
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/pgsql/backup"
+      device: ~/web/service/pgsql/backup
   php81-supervisor:
     name: php81-supervisor
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/php/8.1/supervisor/conf.d"
+      device: ~/web/service/php/8.1/supervisor/conf.d
   php81-run:
     name: php81-run
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/var/web/service/php/8.1/run"
+      device: ~/web/service/php/8.1/run
 
 networks:
   web:

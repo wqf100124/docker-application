@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ ! -f /var/web/project/django/manage.py ]; then
-    mkdir -p /var/web/project/django && django-admin startproject app /var/web/project/django
+if [ ! -f /app/manage.py ]; then
+    mkdir -p /app && django-admin startproject app /app
 fi
 
 python3 manage.py runserver 0.0.0.0:8000

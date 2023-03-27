@@ -41,10 +41,10 @@ $ docker run -d \
 --name web \
 --network web \
 -p 80:80 \
--v /var/web/project:/var/web/project \
--v /var/web/service/nginx/conf.d:/etc/nginx/conf.d \
+-v ~/web/apps:/apps \
+-v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
 --restart always \
-wangqifei/dev
+i94m/dev:php8.2
 ```
 
 ### Nginx
@@ -77,11 +77,11 @@ $ php artisan octane:start --server=swoole --host=0.0.0.0 --port=8000 --watch
 version: "3"
 services:
   web:
-    image: wangqifei/dev:php8.2
+    image: i94m/dev:php8.2
     container_name: web
     privileged: true
     volumes:
-      - project:/var/web/project
+      - project:/apps
       - nginx:/etc/nginx/conf.d
     networks:
       web:

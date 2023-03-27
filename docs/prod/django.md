@@ -5,7 +5,7 @@ python/pip/django
 ## 构建镜像
 
 ```sh
-$ docker build -t wangqifei/django --no-cache ./prod/django
+$ docker build -t i94m/django --no-cache ./prod/django
 ```
 
 ## 运行容器
@@ -16,9 +16,9 @@ $ docker run -d \
   --network web  \
   -p 80:80  \
   -p 8000:8000  \
-  -v /var/web/project/django:/var/web/project/django  \
+  -v ~/web/apps/django:/apps/django  \
   --restart always  \
-  wangqifei/django
+  i94m/django
 ```
 
 ## 开发模式

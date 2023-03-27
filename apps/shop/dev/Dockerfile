@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL author="928988368@qq.com"
 LABEL description="The shop development environment."
-WORKDIR /var/web/project/shop
+WORKDIR ~/web/apps/shop
 COPY ./src /tmp
 RUN sed -i "s@archive.ubuntu.com@mirrors.163.com@g" /etc/apt/sources.list \
     && apt-get update \

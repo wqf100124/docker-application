@@ -27,7 +27,7 @@ crontab的文件格式
 
 ## 添加
 ```sh
-$ crontab -l | { cat; echo "* * * * * /usr/bin/php /var/web/project/example/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
+$ crontab -l | { cat; echo "* * * * * /usr/bin/php /apps/example/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
 ```
 
 

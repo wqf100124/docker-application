@@ -193,8 +193,8 @@ $ /etc/init.d/supervisord {start|stop|restart|force-reload|status}
 ```ini
 [program:example]
 process_name=%(program_name)s_%(process_num)02d
-command=/usr/bin/php /var/web/project/example/artisan octane:start --server=swoole --workers=1 --task-workers=2 --max-requests=200 --host=0.0.0.0 --port=8000
-stdout_logfile=/var/web/project/example/storage/logs/octane.log
+command=/usr/bin/php /app/artisan octane:start --server=swoole --workers=1 --task-workers=2 --max-requests=200 --host=0.0.0.0 --port=8000
+stdout_logfile=/app/storage/logs/octane.log
 autostart=true
 autorestart=true
 user=root
@@ -207,8 +207,8 @@ stopwaitsecs=3600
 ```ini
 [program:example]
 process_name=%(program_name)s_%(process_num)02d
-command=/usr/bin/php /var/web/project/example/artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000
-stdout_logfile=/var/web/project/example/storage/logs/octane.log
+command=/usr/bin/php /app/artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000
+stdout_logfile=/app/storage/logs/octane.log
 autostart=true
 autorestart=true
 user=root
@@ -220,7 +220,7 @@ stopwaitsecs=3600
 ## Cron(定时任务)
 
 ```sh
-$ crontab -l | { cat; echo "* * * * * /usr/bin/php /var/web/project/example/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
+$ crontab -l | { cat; echo "* * * * * /usr/bin/php /app/artisan schedule:run >> /dev/null 2>&1"; } | crontab -
 ```
 
 ## Redis

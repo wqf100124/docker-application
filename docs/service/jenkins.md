@@ -12,10 +12,10 @@ docker run -d \
     --name jenkins \
     --network web \
     --ip 172.16.0.201 \
-    -v /var/web/service/jenkins:/var/jenkins_home \
+    -v ~/web/service/jenkins:/var/jenkins_home \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v ~/.ssh:/root/.ssh \
-    -v /var/web/project:/var/web/project \
+    -v ~/web/apps:/apps \
     jenkinsci/blueocean
 ```
 

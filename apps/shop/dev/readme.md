@@ -3,7 +3,7 @@ nginx/php/composer
 
 ## 构建镜像
 ```shell
-docker build -t wangqifei/shop:dev --no-cache .
+docker build -t i94m/shop:dev --no-cache .
 ```
 
 ## 创建网络
@@ -20,9 +20,9 @@ docker run -d \
 --network web \
 -p 80:80 \
 -v ~/.ssh:/root/.ssh \
--v /var/web/project/shop:/var/web/project/shop \
+-v ~/web/apps/shop:/apps/shop \
 --restart always \
-wangqifei/shop:dev
+i94m/shop:dev
 ```
 
 nginx
