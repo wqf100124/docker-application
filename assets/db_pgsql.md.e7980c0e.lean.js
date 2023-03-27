@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.e029e743.js";const F=JSON.parse('{"title":"Postgresql","description":"","frontmatter":{},"headers":[],"relativePath":"db/pgsql.md"}'),p={name:"db/pgsql.md"},o=l("",36),e=[o];function t(c,r,C,D,y,A){return n(),a("div",null,e)}const E=s(p,[["render",t]]);export{F as __pageData,E as default};

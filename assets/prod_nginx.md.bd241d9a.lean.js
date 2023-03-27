@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,N as l}from"./chunks/framework.e029e743.js";const h=JSON.parse('{"title":"Nginx的配置","description":"","frontmatter":{},"headers":[],"relativePath":"prod/nginx.md"}'),p={name:"prod/nginx.md"},e=l("",30),o=[e];function t(c,r,i,y,C,A){return a(),n("div",null,o)}const d=s(p,[["render",t]]);export{h as __pageData,d as default};
