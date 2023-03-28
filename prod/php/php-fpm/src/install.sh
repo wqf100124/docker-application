@@ -31,6 +31,9 @@ php${1}-gd \
 php${1}-gmp \
 php${1}-zip
 mv /tmp/php.ini /etc/php/${1}/cli/php.ini
+if [ ! $1 = 7.1 ] && [ ! $1 = 7.0 ] && [ ! $1 = 5.6 ]; then
+    apt-get install -y php${1}-swoole
+fi
 # ---------- composer ----------
 # apt-get purge composer
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
