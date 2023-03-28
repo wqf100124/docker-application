@@ -10,7 +10,7 @@
 
 taro3
 ```sh
-$ docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./build
+$ docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./prod/taro
 ```
 
 ## 创建容器
@@ -19,5 +19,5 @@ $ docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./build
 $ docker run -d \
 --name taro \
 -v ~/web/apps/app:/app \
-i94m/taro
+i94m/taro:3
 ```

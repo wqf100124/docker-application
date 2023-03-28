@@ -30,7 +30,11 @@
     "php-fpm:5.6": "docker build -t i94m/php-fpm:5.6 --build-arg version=5.6 --no-cache ./prod/php/php-fpm",
     "octane:php8.2": "docker build -t i94m/octane:php8.2 -t i94m/octane:latest --no-cache ./prod/php/octane",
     "octane:php8.1": "docker build -t i94m/octane:php8.1 --build-arg version=8.1 --no-cache ./prod/php/octane",
-    "octane:php8.0": "docker build -t i94m/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane"
+    "octane:php8.0": "docker build -t i94m/octane:php8.0 --build-arg version=8.0 --no-cache ./prod/php/octane",
+    "django:dev": "docker build -t i94m/django:dev --no-cache ./dev/django",
+    "django": "docker build -t i94m/django --no-cache ./prod/django",
+    "scrapy": "docker build -t i94m/scrapy --no-cache ./prod/scrapy",
+    "taro:3": "docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./prod/taro"
   },
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.63",
