@@ -34,9 +34,11 @@ php${1}-pgsql \
 php${1}-sqlite3 \
 php${1}-gd \
 php${1}-gmp \
-php${1}-zip \
-php${1}-swoole
+php${1}-zip
 # php${1}-opcache php${1}-mongodb
+if [ $1 -gt 7.2 ]; then
+    apt-get install -y php${1}-swoole
+fi
 mv /tmp/php.ini /etc/php/${1}/cli/php.ini
 # ---------- composer ----------
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
