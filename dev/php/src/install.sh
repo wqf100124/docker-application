@@ -36,7 +36,7 @@ php${1}-gd \
 php${1}-gmp \
 php${1}-zip
 # php${1}-opcache php${1}-mongodb
-if [ $1 -gt 7.2 ]; then
+if [ ! $1 = 7.1 ] && [ ! $1 = 7.0 ] && [ ! $1 = 5.6 ]; then
     apt-get install -y php${1}-swoole
 fi
 mv /tmp/php.ini /etc/php/${1}/cli/php.ini
