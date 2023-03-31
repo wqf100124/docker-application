@@ -38,13 +38,13 @@ $ docker network create --subnet=172.16.0.0/24 web
 
 ```sh
 $ docker run -d \
---name web \
---network web \
--p 80:80 \
--v ~/web/apps:/apps \
--v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
---restart always \
-i94m/dev:php8.2
+    --name web \
+    --network web \
+    -p 80:80 \
+    -v ~/web/apps:/apps \
+    -v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
+    --restart always \
+    i94m/dev:php8.2
 ```
 
 ### Nginx
