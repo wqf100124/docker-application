@@ -4,9 +4,9 @@ export default defineConfig({
     title: '开发笔记',
     description: '记录日常在开发、生产以及部署过程中遇到的问题和解决方案。',
     lang: 'zh-CN',
-    base: '/docker-application/',
+    base: '/',
     head: [
-        ['link', {rel: 'shortcut icon', href: '/docker-application/image/logo.svg'}]
+        ['link', {rel: 'shortcut icon', href: '/image/logo.svg'}]
     ],
     themeConfig: {
         editLink: false,
