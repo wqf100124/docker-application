@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as l,N as n}from"./chunks/framework.e029e743.js";const u=JSON.parse('{"title":"使用宝塔部署项目","description":"","frontmatter":{},"headers":[],"relativePath":"deploy/bt.md"}'),p={name:"deploy/bt.md"},e=n("",56),o=[e];function t(c,r,i,C,h,d){return l(),a("div",null,o)}const A=s(p,[["render",t]]);export{u as __pageData,A as default};

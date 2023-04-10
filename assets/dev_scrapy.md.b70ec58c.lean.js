@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.e029e743.js";const d=JSON.parse('{"title":"Scrapy(爬虫)","description":"","frontmatter":{},"headers":[],"relativePath":"dev/scrapy.md"}'),p={name:"dev/scrapy.md"},o=l("",16),e=[o];function c(t,r,C,y,D,i){return n(),a("div",null,e)}const h=s(p,[["render",c]]);export{d as __pageData,h as default};

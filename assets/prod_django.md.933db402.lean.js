@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"Django","description":"","frontmatter":{},"headers":[],"relativePath":"prod/django.md"}'),p={name:"prod/django.md"},o=l("",31),e=[o];function t(c,r,C,i,y,A){return n(),a("div",null,e)}const h=s(p,[["render",t]]);export{d as __pageData,h as default};

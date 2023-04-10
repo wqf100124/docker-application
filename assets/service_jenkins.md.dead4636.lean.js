@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as o}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"Jenkins自动化部署","description":"","frontmatter":{},"headers":[],"relativePath":"service/jenkins.md"}'),l={name:"service/jenkins.md"},e=o("",9),p=[e];function c(t,r,C,i,A,y){return n(),a("div",null,p)}const h=s(l,[["render",c]]);export{d as __pageData,h as default};

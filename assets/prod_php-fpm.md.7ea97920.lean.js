@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as p}from"./chunks/framework.0799945b.js";const D=JSON.parse('{"title":"PHP-FPM","description":"","frontmatter":{},"headers":[],"relativePath":"prod/php-fpm.md"}'),l={name:"prod/php-fpm.md"},o=p("",17),e=[o];function t(c,r,C,i,y,A){return n(),a("div",null,e)}const d=s(l,[["render",t]]);export{D as __pageData,d as default};

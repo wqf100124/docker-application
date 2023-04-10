@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as e}from"./chunks/framework.0799945b.js";const u=JSON.parse('{"title":"Linux 挂载数据盘","description":"","frontmatter":{},"headers":[],"relativePath":"question/disk.md"}'),l={name:"question/disk.md"},p=e("",19),t=[p];function o(c,i,r,d,C,A){return n(),a("div",null,t)}const y=s(l,[["render",o]]);export{u as __pageData,y as default};
