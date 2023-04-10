@@ -37,7 +37,7 @@
     "taro:3": "docker build -t i94m/taro:3 -t i94m/taro:latest --no-cache ./prod/taro"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.63",
+    "vitepress": "^1.0.0-alpha.65",
     "vue": "^3.2.47"
   }
 }
