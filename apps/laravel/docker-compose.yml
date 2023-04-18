@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  web:
+    container_name: web
+    build: ./build
+#    image: i94m/prod:20230417
+    restart: always
+    networks:
+      web:
+        ipv4_address: 172.16.0.80
+    tty: true
+    stdin_open: true
+    privileged: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/app
+
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql5.7
+    image: mysql:5.7
+    restart: always
+    networks:
+      web:
+        ipv4_address: 172.16.0.33
+    ports:
+      - "3306:3306"
+#    volumes:
+#      - mysql5.7:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=Ab123456
+
+networks:
+  web:
+    name: web
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
