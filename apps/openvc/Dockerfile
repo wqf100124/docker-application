@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.1.0-devel-ubuntu20.04
+FROM nvidia/cuda-arm64:11.4.0-devel-ubuntu20.04
 LABEL maintainer="HinGwenWong"
 ENV REFRESHED_AT=2023-04-18
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && \
@@ -37,3 +37,5 @@ RUN python3 -m pip install --upgrade --force-reinstall pip \
     && apt-get clean \
     && rm -rf /tmp/* /var/lib/apt/lists/* \
     && pip3 list
+
+docker run -it --name opencv --platform=linux/arm64 -v /www/wwwroot/freedom/face:/app nvidia/cuda-arm64:11.4.0-devel-ubuntu20.04 bash
