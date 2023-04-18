@@ -16,7 +16,7 @@ RUN apt-get install -y --no-install-recommends \
     python3-pip
 # Using douban pip mirror to install
 RUN python3 -m pip install --upgrade --force-reinstall pip \
-    && pip3 config set global.index-url https://pypi.douban.com/simple/ \
+    && pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/ \
     && pip3 install --no-cache-dir setuptools \
     opencv-contrib-python \
     opencv-python==4.7.0.72 \
@@ -25,12 +25,11 @@ RUN python3 -m pip install --upgrade --force-reinstall pip \
     easydict \
     mxnet \
     mxnet-cu100 \
-    sklearn \
+    scikit-learn \
     scikit-image \
     pymysql \
     icecream \
     redis \
-    scikit-learn \
     iml \
     DBUtils==1.3 \
     && apt-get remove --yes software-properties-common \
@@ -38,9 +37,3 @@ RUN python3 -m pip install --upgrade --force-reinstall pip \
     && apt-get clean \
     && rm -rf /tmp/* /var/lib/apt/lists/* \
     && pip3 list
-
-
-
-
-
-
