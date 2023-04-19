@@ -3,7 +3,7 @@
 ## 打包
 
 1.命令行进入到项目根目录
-2.运行 docker build -t 你的镜像名称:版本 .
+2.运行 docker build --no-cache -t 你的镜像名称:版本 .
 3.docker push 你的镜像名称:版本
 
 ## 测试

@@ -35,7 +35,21 @@ php7.4-zip \
 php7.4-opcache
 #php7.4-memcache \
 #php7.4-memcached
-mv /tmp/php.ini /etc/php/7.4/cli/php.ini
+# ---------- php.ini ----------
+sed -i "s/;date.timezone =/date.timezone = Asia\/Shanghai/g" /etc/php/7.4/cli/php.ini
+sed -i "s/;mbstring.internal_encoding =/mbstring.internal_encoding = \"UTF-8\"/g" /etc/php/7.4/cli/php.ini
+sed -i "s/;mbstring.http_output =/mbstring.http_output = \"UTF-8\"/g" /etc/php/7.4/cli/php.ini
+sed -i "s/short_open_tag = Off/short_open_tag = On/g" /etc/php/7.4/cli/php.ini
+sed -i "s/variables_order = \"GPCS\"/variables_order = \"EGPCS\"/g" /etc/php/7.4/cli/php.ini
+sed -i "s/request_order = \"GP\"/request_order = \"GPC\"/g" /etc/php/7.4/cli/php.ini
+sed -i "s/max_execution_time = 30/max_execution_time = 1800/g" /etc/php/7.4/cli/php.ini
+sed -i "s/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_STRICT/error_reporting = E_ALL/g" /etc/php/7.4/cli/php.ini
+sed -i "s/register_argc_argv = Off/register_argc_argv = On/g" /etc/php/7.4/cli/php.ini
+sed -i "s/post_max_size = 8M/post_max_size = 150M/g" /etc/php/7.4/cli/php.ini
+sed -i "s/enable_dl = Off/enable_dl = On/g" /etc/php/7.4/cli/php.ini
+sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 150M/g" /etc/php/7.4/cli/php.ini
+cp -f /etc/php/7.4/cli/php.ini /etc/php/7.4/fpm/php.ini
+sed -i "s/;clear_env = no/clear_env = no/g" /etc/php/7.4/fpm/pool.d/www.conf
 # ---------- composer ----------
 # apt-get purge composer
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"

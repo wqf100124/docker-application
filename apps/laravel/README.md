@@ -10,9 +10,9 @@ $ docker-compose up -d
 
 1.打包镜像
 ```sh
-$ docker build -t i94m/prod:20230417 ./build
+$ docker build -t i94m/prod:20230419 --no-cache ./build
 ```
-
+i94m/prod:20230419
 2.创建网络
 ```sh
 $ docker network create --subnet=172.16.0.0/24 web
@@ -27,7 +27,7 @@ $ docker run -d \
     --ip 172.16.0.80 \
     -p 80:80 \
     -v ~/app:/app \
-    i94m/prod:20230417
+    i94m/prod:20230419
 ```
 
 4.创建 mysql 容器
