@@ -40,6 +40,7 @@ mv /tmp/php.ini /etc/php/7.4/cli/php.ini
 # apt-get purge composer
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/bin --filename=composer;
+rm composer-setup.php
 # ---------- init ----------
 mkdir -p /run/php
 chmod -R 777 /run/php
