@@ -217,6 +217,17 @@ redirect_stderr=true
 stopwaitsecs=3600
 ```
 
+## PHP5.6 No input file specified.
+
+> PHP message: PHP Warning:  Unknown: open_basedir restriction in effect.
+
+解决办法
+
+修改 php.ini 文件中的 open_basedir，添加项目目录，同时 chmod -R 775 /www/wwwroot/app/
+```
+open_basedir = "/www/wwwroot/app/:/tmp/:/var/tmp/:/proc/"
+```
+
 ## Cron(定时任务)
 
 ```sh
