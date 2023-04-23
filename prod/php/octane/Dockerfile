@@ -7,5 +7,5 @@ COPY src /tmp
 RUN apt-get update \
     && chmod +x /tmp/install.sh \
     && /tmp/install.sh ${version}
-ENTRYPOINT ["/run/entrypoint.sh"]
+CMD ["/bin/bash", "-c", "/run/entrypoint.sh"]
 EXPOSE 8000

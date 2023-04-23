@@ -7,4 +7,4 @@ RUN sed -i "s@archive.ubuntu.com@mirrors.163.com@g" /etc/apt/sources.list \
     && apt-get update \
     && chmod +x /tmp/install.sh \
     && /tmp/install.sh
-ENTRYPOINT ["/run/entrypoint.sh"]
+CMD ["/bin/bash", "-c", "/run/entrypoint.sh"]
