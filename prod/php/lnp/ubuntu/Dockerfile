@@ -8,4 +8,4 @@ RUN apt-get update \
     && chmod +x /tmp/install.sh \
     && /tmp/install.sh ${version}
 CMD ["/bin/bash", "-c", "/run/entrypoint.sh"]
-EXPOSE 80 443 8000
+EXPOSE 80 443

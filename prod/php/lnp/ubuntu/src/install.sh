@@ -20,12 +20,8 @@ apt-get update
 apt-get install -y nginx
 cp /tmp/nginx.conf /etc/nginx/nginx.conf
 mv /tmp/sites /etc/nginx/sites-available
-mv -f /etc/nginx/sites-available/default.conf /etc/nginx/conf.d/default.conf
-mkdir /var/www
-mv /tmp/htdocs /var/www
 sed -i "s/{version}/${1}/g" /etc/nginx/sites-available/laravel.conf
 sed -i "s/{version}/${1}/g" /etc/nginx/sites-available/php.conf
-sed -i "s/{version}/${1}/g" /etc/nginx/conf.d/default.conf
 # ---------- php ----------
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php
@@ -47,8 +43,9 @@ php${1}-pgsql \
 php${1}-sqlite3 \
 php${1}-gd \
 php${1}-gmp \
-php${1}-zip
-# php${1}-opcache php${1}-mongodb
+php${1}-zip \
+php${1}-opcache
+# php${1}-mongodb
 if [ ! $1 = 7.1 ] && [ ! $1 = 7.0 ] && [ ! $1 = 5.6 ]; then
     apt-get install -y php${1}-swoole
 fi
@@ -63,10 +60,6 @@ sed -i "s/group = www-data/group = nginx/g" /etc/php/${1}/fpm/pool.d/www.conf
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/bin --filename=composer;
 rm composer-setup.php
-# ---------- memcached ----------
-apt-get install -y memcached
-# ---------- redis ----------
-apt-get install -y redis-server
 # ---------- init ----------
 mkdir -p /run/php
 chmod -R 777 /run/php

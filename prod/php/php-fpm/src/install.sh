@@ -31,6 +31,8 @@ php${1}-gd \
 php${1}-gmp \
 php${1}-zip
 mv /tmp/php.ini /etc/php/${1}/cli/php.ini
+cp -f /etc/php/${1}/cli/php.ini /etc/php/${1}/fpm/php.ini
+sed -i "s/;clear_env = no/clear_env = no/g" /etc/php/${1}/fpm/pool.d/www.conf
 if [ ! $1 = 7.1 ] && [ ! $1 = 7.0 ] && [ ! $1 = 5.6 ]; then
     apt-get install -y php${1}-swoole
 fi

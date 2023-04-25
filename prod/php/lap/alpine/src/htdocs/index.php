@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>The php development environment.</title>
+    <title>Local php development environment.</title>
     <link href="/static/css/weui.min.css" rel="stylesheet">
     <style>
         .container {
@@ -28,10 +28,10 @@
         <div class="weui-msg__text-area">
             <h2 class="weui-msg__title">Successful!</h2>
             <p class="weui-msg__desc">
-                The php development environment.
+                Local php development environment.
             </p>
             <p class="weui-msg__desc">
-                <a href="phpinfo.php" title="查看phpinfo">PHP <?php echo substr(PHP_VERSION, 0, 6); ?></a>
+                <a href="phpinfo.php" title="查看phpinfo">PHP <?php echo PHP_VERSION; ?></a>
             </p>
         </div>
         <div class="weui-msg__extra-area">
