@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as p}from"./chunks/framework.0799945b.js";const F=JSON.parse('{"title":"PHP本地开发环境","description":"","frontmatter":{},"headers":[],"relativePath":"dev/php.md"}'),l={name:"dev/php.md"},o=p("",28),e=[o];function c(t,r,C,y,D,A){return n(),a("div",null,e)}const d=s(l,[["render",c]]);export{F as __pageData,d as default};
