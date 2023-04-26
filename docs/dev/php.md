@@ -4,29 +4,6 @@
 - nginx
 - php
 - composer
-- npm
-
-## 构建镜像
-
-php8.2/latest
-```sh
-$ yarn dev:php8.2
-```
-
-php8.1
-```sh
-$ yarn dev:php8.1
-```
-
-php8.0
-```sh
-$ yarn dev:php8.0
-```
-
-php7.4
-```sh
-$ yarn dev:php7.4
-```
 
 ## 创建网络
 
@@ -44,7 +21,7 @@ $ docker run -d \
     -v ~/web/apps:/apps \
     -v ~/web/service/nginx/conf.d:/etc/nginx/conf.d \
     --restart always \
-    i94m/dev:php8.2
+    i94m/lnp:php8.2-dev
 ```
 
 ### Nginx
@@ -77,7 +54,7 @@ $ php artisan octane:start --server=swoole --host=0.0.0.0 --port=8000 --watch
 version: "3"
 services:
   web:
-    image: i94m/dev:php8.2
+    image: i94m/lnp:php8.2-dev
     container_name: web
     privileged: true
     volumes:
