@@ -12,6 +12,7 @@ mysqladmin -u root password 123456
 2.如果你的root现在有密码了（888888），那么修改密码为123456的命令是：
 ```
 mysqladmin -u root -p password 123456
+mysqladmin -u root -p password Qw1234567890!
 ```
 
 ## 手动设置mysql
