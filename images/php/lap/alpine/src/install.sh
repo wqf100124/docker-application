@@ -72,7 +72,7 @@ sed -i "s/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_STRICT/error_reporting 
 sed -i "s/register_argc_argv = Off/register_argc_argv = On/g" /etc/php81/php.ini
 sed -i "s/post_max_size = 8M/post_max_size = 150M/g" /etc/php81/php.ini
 sed -i "s/enable_dl = Off/enable_dl = On/g" /etc/php81/php.ini
-sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 150M/g" /etc/php81/php.ini
+sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 128M/g" /etc/php81/php.ini
 # ---------- composer ----------
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/bin --filename=composer;
