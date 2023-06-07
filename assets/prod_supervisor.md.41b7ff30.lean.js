@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as o}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"Supervisor","description":"","frontmatter":{},"headers":[],"relativePath":"prod/supervisor.md"}'),p={name:"prod/supervisor.md"},l=o("",6),e=[l];function r(t,c,i,y,D,F){return n(),a("div",null,e)}const C=s(p,[["render",r]]);export{d as __pageData,C as default};

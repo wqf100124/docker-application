@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const F=JSON.parse('{"title":"Mariadb","description":"","frontmatter":{},"headers":[],"relativePath":"db/mariadb.md"}'),p={name:"db/mariadb.md"},o=l("",5),e=[o];function c(r,t,C,y,D,A){return n(),a("div",null,e)}const d=s(p,[["render",c]]);export{F as __pageData,d as default};

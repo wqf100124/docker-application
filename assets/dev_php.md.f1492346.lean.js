@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,O as l}from"./chunks/framework.4afe7240.js";const i=JSON.parse('{"title":"PHP本地开发环境","description":"","frontmatter":{},"headers":[],"relativePath":"dev/php.md","filePath":"dev/php.md"}'),p={name:"dev/php.md"},o=l("",19),e=[o];function c(t,r,C,y,D,A){return n(),a("div",null,e)}const d=s(p,[["render",c]]);export{i as __pageData,d as default};
