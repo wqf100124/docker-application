@@ -397,3 +397,15 @@ $ free -m
 ```sh
 $ echo '/etc/fstab' >> /var/swapfile swap swap defaults 0 0
 ```
+
+
+## COM扩展
+
+> 只支持Windows环境
+
+修改php.ini文件
+```ini
+enable_dl = On
+com.allow_dcom = true
+extension=php_com_dotnet.dll
+```
