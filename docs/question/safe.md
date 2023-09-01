@@ -25,3 +25,26 @@ echo PHP_EOL;
 $input = abs(sprintf("%.2f", $input));
 echo $input;
 ```
+
+```php 
+
+        var_dump(time(801));
+// 秒数转换时分秒
+    function time(int $seconds)
+    {
+        $h = intval($seconds / 3600);
+        $m = intval($seconds % 3600 / 60);
+        $s = $seconds % 60;
+
+        $time = '';
+        if ($h > 0) {
+            $time .= $h . '小时';
+        }
+        if ($m > 0) {
+            $time .= $m . '分钟';
+        }
+        if ($s > 0) {
+            $time .= $s . '秒';
+        }
+    }
+```
