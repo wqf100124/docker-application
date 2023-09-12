@@ -165,6 +165,12 @@ php8.1-gmp \
 php8.1-zip
 ```
 
+查看PHP扩展目录
+```sh
+php -i | grep extension_dir
+#extension_dir => /usr/lib/php/20220829 => /usr/lib/php/20220829
+```
+
 ### php-fpm
 
 安装
