@@ -415,3 +415,27 @@ enable_dl = On
 com.allow_dcom = true
 extension=php_com_dotnet.dll
 ```
+
+打包部署
+
+deploy.sh
+```sh 
+path=/home/www/test/h5
+echo -e "\n【测试环境】开始部署..."
+cd ${path}
+backup=${path}/backup/$(date +%Y-%m-%d-%H-%M-%S).tar.gz
+tar -czf ${backup} ./dist
+echo "新的备份文件: ${backup}"
+cd ./uniapp
+git fetch --all
+git reset --hard origin/dev
+git pull origin dev
+echo "代码更新成功"
+echo "开始打包前端资源..."
+yarn build:h5
+echo "前端资源打包成功"
+rm -rf ../dist/*
+cp -r ./dist/build/h5/* ../dist/
+echo "部署成功"
+echo $(date "+%Y-%m-%d %H:%M:%S")
+```
